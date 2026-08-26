@@ -113,7 +113,7 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
                     Adresse du Siège
                   </strong>
                   <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
-                    124 Avenue des Entreprises, Complexe AVIRA<br />75008 Paris, France
+                    Ouest Foire, Dakar, Sénégal
                   </span>
                 </div>
               </div>
@@ -136,11 +136,16 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
                 </div>
                 <div>
                   <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--color-blue-dark)', fontFamily: 'var(--font-heading)' }}>
-                    Téléphone Direct
+                    Téléphones Directs
                   </strong>
-                  <a href="tel:+33180000000" style={{ fontSize: '0.95rem', color: 'var(--color-orange-avira)', fontWeight: 600 }}>
-                    +33 (0)1 80 00 00 00
-                  </a>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                    <a href="tel:+221784354817" style={{ fontSize: '0.95rem', color: 'var(--color-orange-avira)', fontWeight: 600 }}>
+                      +221 78 435 48 17
+                    </a>
+                    <a href="tel:+221784424479" style={{ fontSize: '0.95rem', color: 'var(--color-orange-avira)', fontWeight: 600 }}>
+                      +221 78 442 44 79
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -164,8 +169,8 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
                   <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--color-blue-dark)', fontFamily: 'var(--font-heading)' }}>
                     Courriel Général
                   </strong>
-                  <a href="mailto:contact@aviragroup.fr" style={{ fontSize: '0.95rem', color: 'var(--color-blue-avira)', fontWeight: 600 }}>
-                    contact@aviragroup.fr
+                  <a href="mailto:aviragroup78@gmail.com" style={{ fontSize: '0.95rem', color: 'var(--color-blue-avira)', fontWeight: 600 }}>
+                    aviragroup78@gmail.com
                   </a>
                 </div>
               </div>

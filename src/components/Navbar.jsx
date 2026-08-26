@@ -167,21 +167,36 @@ export default function Navbar({ onOpenQuote }) {
               <FileText size={20} />
               <span>Demander un devis personnalisé</span>
             </button>
-            <a
-              href="tel:+33180000000"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                color: 'rgba(255, 255, 255, 0.8)',
-                fontSize: '0.95rem',
-                padding: '0.75rem',
-              }}
-            >
-              <PhoneCall size={18} color="var(--color-orange-avira)" />
-              <span>+33 (0)1 80 00 00 00</span>
-            </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', alignItems: 'center' }}>
+              <a
+                href="tel:+221784354817"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                }}
+              >
+                <PhoneCall size={16} color="var(--color-orange-avira)" />
+                <span>+221 78 435 48 17</span>
+              </a>
+              <a
+                href="tel:+221784424479"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                }}
+              >
+                <PhoneCall size={16} color="var(--color-orange-avira)" />
+                <span>+221 78 442 44 79</span>
+              </a>
+            </div>
           </div>
         </div>
       )}
