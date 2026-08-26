@@ -1,0 +1,251 @@
+/* AVIRA GROUP — Global CSS & Design System */
+:root {
+  /* Brand Colors (Exact Hex values from brandGuideline.md) */
+  --color-blue-avira: #0038A9;
+  --color-blue-dark: #0A1E4A;
+  --color-blue-deep: #050D24;
+  --color-blue-light: #EBF1FF;
+  
+  --color-orange-avira: #FE6102;
+  --color-orange-hover: #E05200;
+  --color-orange-light: #FFF0E6;
+
+  --color-bg-light: #FAFAFA;
+  --color-bg-white: #FFFFFF;
+  --color-card-bg: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+
+  --color-text-main: #1A1A1A;
+  --color-text-muted: #4A5568;
+  --color-text-light: #FFFFFF;
+  --color-text-dim: #94A3B8;
+
+  /* Pole Accents (for multi-pole section accents) */
+  --pole-audiovisuel: #8B5CF6;
+  --pole-btp: #D97706;
+  --pole-impression: #06B6D4;
+  --pole-vehicules: #EF4444;
+  --pole-logistique: #10B981;
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Spacing & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 56, 169, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 56, 169, 0.1);
+  --shadow-lg: 0 16px 40px rgba(0, 56, 169, 0.15);
+  --shadow-orange: 0 8px 25px rgba(254, 97, 2, 0.35);
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Styling (Mobile-first) */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Strict min 16px base font size for mobile readability */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--color-blue-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  min-height: 48px; /* High tactile area on mobile */
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-orange-avira);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-orange);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(254, 97, 2, 0.45);
+}
+
+.btn-outline-blue {
+  background-color: transparent;
+  color: var(--color-blue-avira);
+  border-color: var(--color-blue-avira);
+}
+
+.btn-outline-blue:hover {
+  background-color: var(--color-blue-avira);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-light:hover {
+  background-color: #FFFFFF;
+  color: var(--color-blue-avira);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Section styling */
+.section {
+  padding: 4.5rem 0;
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding: 7rem 0;
+  }
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-avira);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.1rem;
+  margin-bottom: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.8rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Text Highlights */
+.text-avira-blue {
+  color: var(--color-blue-avira);
+}
+
+.text-avira-orange {
+  color: var(--color-orange-avira);
+}
