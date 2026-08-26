@@ -22,7 +22,7 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        paddingTop: '8.5rem',
+        paddingTop: '5.5rem',
         paddingBottom: '5rem',
         background: 'radial-gradient(circle at 85% 15%, #00287A 0%, #0038A9 45%, #041235 100%)',
         color: '#FFFFFF',

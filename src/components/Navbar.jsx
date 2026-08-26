@@ -33,26 +33,21 @@ export default function Navbar({ onOpenQuote }) {
           zIndex: 1000,
           transition: 'all 0.3s ease',
           backgroundColor: isScrolled
-            ? 'rgba(255, 255, 255, 0.95)'
-            : 'rgba(255, 255, 255, 0.85)',
+            ? 'rgba(255, 255, 255, 0.96)'
+            : 'rgba(255, 255, 255, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderBottom: isScrolled
             ? '1px solid rgba(0, 56, 169, 0.12)'
             : '1px solid rgba(0, 0, 0, 0.05)',
           boxShadow: isScrolled ? '0 4px 20px rgba(0, 56, 169, 0.08)' : 'none',
-          padding: isScrolled ? '0.75rem 0' : '1.1rem 0',
+          padding: isScrolled ? '0.35rem 0' : '0.5rem 0',
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Logo - Compact on small screen, full on desktop */}
+          {/* Logo - Sleek horizontal logo in navbar */}
           <a href="#" aria-label="AVIRA GROUP Accueil" style={{ display: 'flex', alignItems: 'center' }}>
-            <div className="hidden-mobile">
-              <Logo size="medium" />
-            </div>
-            <div className="visible-mobile">
-              <Logo size="small" variant="compact" />
-            </div>
+            <Logo variant="horizontal" size="small" />
           </a>
 
           {/* Desktop Nav Links */}
@@ -64,7 +59,7 @@ export default function Navbar({ onOpenQuote }) {
                 style={{
                   fontFamily: 'var(--font-heading)',
                   fontWeight: 600,
-                  fontSize: '0.95rem',
+                  fontSize: '0.9rem',
                   color: 'var(--color-text-main)',
                   transition: 'color 0.2s ease',
                   position: 'relative',
@@ -77,18 +72,19 @@ export default function Navbar({ onOpenQuote }) {
             ))}
           </nav>
 
-          {/* Actions: Contact / Quote Button (Visible on mobile & desktop per brand guidelines) */}
+          {/* Actions: Contact / Quote Button */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <button
               onClick={onOpenQuote}
               className="btn btn-primary"
               style={{
-                fontSize: '0.9rem',
-                padding: '0.65rem 1.25rem',
-                minHeight: '42px',
+                fontSize: '0.85rem',
+                padding: '0.45rem 1.1rem',
+                minHeight: '38px',
+                borderRadius: 'var(--radius-md)',
               }}
             >
-              <FileText size={18} />
+              <FileText size={16} />
               <span>Demander un devis</span>
             </button>
 
@@ -101,14 +97,14 @@ export default function Navbar({ onOpenQuote }) {
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                padding: '0.5rem',
+                padding: '0.35rem',
                 color: 'var(--color-blue-avira)',
                 display: 'none',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
