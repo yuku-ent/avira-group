@@ -45,6 +45,55 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
     }, 800);
   };
 
+  const getHeaderInfo = (poleId) => {
+    switch (poleId) {
+      case 'audiovisuel':
+        return {
+          badge: 'Devis Pôle Audiovisuel & Événementiel',
+          title: 'Confiez-nous Votre Production Vidéo',
+          highlight: 'Réponse & Chiffrage Sous 24h',
+          desc: 'Indiquez les détails de votre projet (captation direct, film corporate, studio 4K). Nos équipes de réalisation vous répondent rapidement.',
+        };
+      case 'btp':
+        return {
+          badge: 'Étude Technique BTP & Immobilier',
+          title: 'Concrétisez Vos Projets de Construction',
+          highlight: 'Étude de Chantier Sur-Mesure',
+          desc: 'Transmettez-nous vos besoins de gros œuvre, rénovation ou promotion. Nos ingénieurs travaux étudient votre cahier des charges.',
+        };
+      case 'impression':
+        return {
+          badge: 'Devis Impression Grand Format & Signalétique',
+          title: 'Sublimez Vos Supports de Communication',
+          highlight: 'Qualité Print Haute Définition',
+          desc: 'Bâches, enseignes, total covering ou imprimés. Obtenez une cotation personnalisée par notre atelier de façonnage.',
+        };
+      case 'vehicules':
+        return {
+          badge: 'Devis Flotte & Location de Véhicules',
+          title: 'Optimisez la Mobilité de Vos Équipes',
+          highlight: 'Contrats Souples LLD / LCD',
+          desc: 'Utilitaires, berlines ou engins de chantier. Nos conseillers mobilité dimensionnent votre flotte avec assistance 24/7.',
+        };
+      case 'logistique':
+        return {
+          badge: 'Devis Fret & Prestations Logistiques',
+          title: 'Sécurisez Votre Chaîne de Transport',
+          highlight: 'Fret Routier & Stockage Sécurisé',
+          desc: 'Expédition routière, stockage ou livraison express. Obtenez un chiffrage de transport adapté avec traçabilité GPS.',
+        };
+      default:
+        return {
+          badge: 'Contact & Demande de Devis Général',
+          title: 'Parlons de Votre Projet',
+          highlight: 'Une Réponse Sous 24 Heures',
+          desc: 'Sélectionnez le pôle concerné ou faites une demande globale. Nos chargés d\'affaires spécialisés vous répondent avec une étude sans engagement.',
+        };
+    }
+  };
+
+  const headerInfo = getHeaderInfo(formData.poleId);
+
   return (
     <section id="contact" ref={sectionRef} className="section" style={{ backgroundColor: 'var(--color-bg-light)' }}>
       <div className="container">
@@ -52,15 +101,14 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="section-tag">
             <Mail size={16} />
-            <span>Contact & Demande de Devis</span>
+            <span>{headerInfo.badge}</span>
           </span>
           <h2 className="section-title">
-            Parlons de Votre Projet <br />
-            <span className="text-avira-orange">Une Réponse Sous 24 Heures</span>
+            {headerInfo.title} <br />
+            <span className="text-avira-orange">{headerInfo.highlight}</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Sélectionnez le pôle concerné ou faites une demande globale.
-            Nos chargés d'affaires spécialisés reviennent vers vous avec une étude chiffrée sans engagement.
+            {headerInfo.desc}
           </p>
         </div>
 

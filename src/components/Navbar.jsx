@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { Menu, X, PhoneCall, ChevronRight, FileText } from 'lucide-react';
 
-export default function Navbar({ onOpenQuote }) {
+export default function Navbar({ onOpenQuote, onNavigateHome }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -15,12 +15,19 @@ export default function Navbar({ onOpenQuote }) {
   }, []);
 
   const navLinks = [
-    { name: 'Nos Pôles', href: '#poles' },
+    { name: 'Accueil', href: '#hero' },
+    { name: 'Services', href: '#poles' },
     { name: 'À Propos', href: '#about' },
-    { name: 'Chiffres Clés', href: '#stats' },
-    { name: 'Engagements', href: '#commitments' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleNavClick = (e, href) => {
+    if (onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome(href);
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -46,7 +53,12 @@ export default function Navbar({ onOpenQuote }) {
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {/* Logo - Sleek horizontal logo in navbar */}
-          <a href="#" aria-label="AVIRA GROUP Accueil" style={{ display: 'flex', alignItems: 'center' }}>
+          <a
+            href="#hero"
+            aria-label="AVIRA GROUP Accueil"
+            style={{ display: 'flex', alignItems: 'center' }}
+            onClick={(e) => handleNavClick(e, '#hero')}
+          >
             <Logo variant="horizontal" size="small" />
           </a>
 
@@ -56,6 +68,7 @@ export default function Navbar({ onOpenQuote }) {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 style={{
                   fontFamily: 'var(--font-heading)',
                   fontWeight: 600,
@@ -135,7 +148,7 @@ export default function Navbar({ onOpenQuote }) {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   style={{
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.35rem',

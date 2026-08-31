@@ -19,6 +19,7 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
 
   return (
     <section
+      id="hero"
       style={{
         position: 'relative',
         minHeight: '100vh',
@@ -220,11 +221,13 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             gap: '1.5rem',
             borderTop: '1px solid rgba(255, 255, 255, 0.15)',
             paddingTop: '2.5rem',
+            justifyItems: 'center',
+            alignItems: 'center',
           }}
           className="hero-stats-grid"
         >
           {stats.map((stat, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '0.3rem' }}>
               <span
                 style={{
                   fontFamily: 'var(--font-mono)',

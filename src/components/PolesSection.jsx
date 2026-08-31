@@ -1,9 +1,115 @@
 import React, { useState } from 'react';
-import PoleModal from './PoleModal';
-import { Video, Building2, Printer, Car, Truck, ArrowRight, Check, Sparkles, Filter } from 'lucide-react';
+import { Video, Building2, Printer, Car, Truck, ArrowRight, Check, Sparkles } from 'lucide-react';
 
-export default function PolesSection({ onSelectPoleForQuote }) {
-  const [selectedPoleModal, setSelectedPoleModal] = useState(null);
+export const polesDataList = [
+  {
+    id: 'audiovisuel',
+    title: 'Audiovisuel',
+    category: 'medias',
+    icon: Video,
+    color: '#8B5CF6',
+    subtitle: 'Production Vidéo, Événementiel & Studio Multi-Caméras',
+    description: 'Conception, réalisation et diffusion de contenus audiovisuels haute définition pour entreprises, événements et médias.',
+    fullDescription: "Le Pôle Audiovisuel d'AVIRA GROUP déploie une ingénierie créative et technique de pointe : régie mobile 4K, captation en direct, studios équipés et production vidéo institutionnelle sur mesure.",
+    services: [
+      { name: 'Captation & Live Streaming', desc: 'Diffusion en direct multi-caméras 4K pour conférences et événements.' },
+      { name: 'Production Vidéo Corporate', desc: 'Films d’entreprise, spots publicitaires et vidéos de marque.' },
+      { name: 'Studio & Post-Production', desc: 'Montage, étalonnage, motion design et mixage son professionnel.' },
+      { name: 'Couverture Événementielle', desc: 'Prise de vue aérienne (drone) et reportages terrain.' }
+    ],
+    highlights: [
+      'Régie technique mobile UHD/4K tout terrain',
+      'Équipe technique qualifiée disponible 7j/7',
+      'Livraison rapide et formats optimisés multi-plateformes'
+    ]
+  },
+  {
+    id: 'btp',
+    title: 'BTP & Immobilier',
+    category: 'construction',
+    icon: Building2,
+    color: '#D97706',
+    subtitle: 'Gros Œuvre, Rénovation & Promotion Immobilière',
+    description: "Construction de bâtiments industriels et commerciaux, gérance immobilière et programmes de rénovation énergétique d'envergure.",
+    fullDescription: "De l'étude de faisabilité architecturale jusqu'à la remise des clés, notre Pôle BTP & Immobilier allie rigueur de construction, normes environnementales et gestion du patrimoine immobilier.",
+    services: [
+      { name: 'Construction & Gros Œuvre', desc: 'Bâtiments tertiaires, industriels et logements résidentiels.' },
+      { name: 'Rénovation Énergétique', desc: 'Audit, isolation thermique et réhabilitation globale.' },
+      { name: 'Promotion & Aménagement', desc: 'Développement de programmes et gestion de projets immobiliers.' },
+      { name: 'Gestion de Patrimoine', desc: 'Gérance locative et maintenance des infrastructures.' }
+    ],
+    highlights: [
+      'Certifications HQE et conformité normes RE2020',
+      'Supervision globale de chantier et respect des délais',
+      'Interlocuteur unique pour maîtres d’ouvrage'
+    ]
+  },
+  {
+    id: 'impression',
+    title: 'Impression Numérique',
+    category: 'medias',
+    icon: Printer,
+    color: '#06B6D4',
+    subtitle: 'Grand Format, Signalétique & Habillage Publicitaire',
+    description: "Impression numérique haute définition sur tous supports, création de signalétique d'entreprise et habillage de véhicules.",
+    fullDescription: "Équipé de traceurs et presses numériques de dernière génération, ce pôle fabrique vos supports de communication visuelle avec une restitution chromatique parfaite et une durabilité éprouvée.",
+    services: [
+      { name: 'Impression Grand Format', desc: 'Bâches, bannières, affiches et panneaux publicitaires.' },
+      { name: 'Signalétique d’Entreprise', desc: 'Enseignes lumineuses, totems, plaques et marquage au sol.' },
+      { name: 'Total Covering & Véhicules', desc: 'Flocage et habillage adhésif haute résistance de flottes.' },
+      { name: 'Print & Packaging Sur-Mesure', desc: 'Brochures d’art, coffrets et catalogues haut de gamme.' }
+    ],
+    highlights: [
+      'Encres écologiques et résistant aux UV / intempéries',
+      'Atelier de façonnage et pose sur site incluse',
+      'Contrôle qualité rigoureux avant livraison'
+    ]
+  },
+  {
+    id: 'vehicules',
+    title: 'Location & Vente de Véhicules',
+    category: 'mobilite',
+    icon: Car,
+    color: '#EF4444',
+    subtitle: 'Gestion de Flottes, Utilitaires & Engins de Chantier',
+    description: "Solutions souples de location courte et longue durée de véhicules utilitaires, berlines et engins spécialisés pour professionnels.",
+    fullDescription: "AVIRA GROUP garantit la mobilité des entreprises grâce à une flotte moderne de véhicules régulièrement révisés et adaptés aux besoins logistiques, de chantier ou de transport de personnel.",
+    services: [
+      { name: 'Location Longue Durée (LLD)', desc: 'Flottes d’entreprises sur-mesure avec entretien inclus.' },
+      { name: 'Location Court & Moyen Terme', desc: 'Utilitaires, camions bennes et véhicules de remplacement.' },
+      { name: 'Engins Spécialisés BTP', desc: 'Nacelles, mini-pelles et engins de manutention.' },
+      { name: 'Vente & Reprise de Véhicules', desc: 'Véhicules récents avec garantie constructeur.' }
+    ],
+    highlights: [
+      'Assistance 24/7 et véhicule de remplacement immédiat',
+      'Maintenance préventive intégrée',
+      'Contrats flexibles modulables selon vos pics d’activité'
+    ]
+  },
+  {
+    id: 'logistique',
+    title: 'Transport & Logistique',
+    category: 'mobilite',
+    icon: Truck,
+    color: '#10B981',
+    subtitle: 'Fret Routier, Stockage Sécurisé & Livraison Express',
+    description: "Acheminement national et international de marchandises, entreposage sous sous-douane et logistique du dernier kilomètre.",
+    fullDescription: "Fort d'un réseau structuré et de plateformes logistiques sécurisées, le Pôle Transport & Logistique d'AVIRA GROUP sécurise votre chaîne d'approvisionnement avec une traçabilité GPS en temps réel.",
+    services: [
+      { name: 'Transport Routier de Fret', desc: 'Lots complets et partiels en France et à l’international.' },
+      { name: 'Entreposage & Stockage', desc: 'Plateformes logistiques sécurisées et sous température contrôlée.' },
+      { name: 'Livraison Express', desc: 'Acheminement urgent 24h/48h avec suivi GPS en direct.' },
+      { name: 'Logistique e-Commerce', desc: 'Préparation de commandes, cross-docking et gestion des retours.' }
+    ],
+    highlights: [
+      'Suivi des expéditions en temps réel via portail client',
+      'Respect strict de la chaîne du froid et des délais',
+      'Flotte de transport décarbonée (Norme Euro 6 / Électrique)'
+    ]
+  }
+];
+
+export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail }) {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const polesData = [
@@ -178,12 +284,13 @@ export default function PolesSection({ onSelectPoleForQuote }) {
           </div>
         </div>
 
-        {/* 5 Pole Cards Grid */}
+        {/* 5 Pole Cards Balanced Grid Layout */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
             gap: '2rem',
+            justifyContent: 'center',
           }}
         >
           {filteredPoles.map((pole) => {
@@ -193,6 +300,8 @@ export default function PolesSection({ onSelectPoleForQuote }) {
                 key={pole.id}
                 className="glass-card"
                 style={{
+                  flex: '1 1 320px',
+                  maxWidth: '380px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -312,7 +421,7 @@ export default function PolesSection({ onSelectPoleForQuote }) {
                   </div>
                 </div>
 
-                {/* Card Action Link */}
+                {/* Card Action Link to Detail Page */}
                 <div
                   style={{
                     borderTop: '1px solid var(--color-border)',
@@ -323,7 +432,7 @@ export default function PolesSection({ onSelectPoleForQuote }) {
                   }}
                 >
                   <button
-                    onClick={() => setSelectedPoleModal(pole)}
+                    onClick={() => onSelectPoleDetail && onSelectPoleDetail(pole)}
                     style={{
                       background: 'none',
                       border: 'none',
@@ -347,13 +456,6 @@ export default function PolesSection({ onSelectPoleForQuote }) {
           })}
         </div>
       </div>
-
-      {/* Modal Popup Component */}
-      <PoleModal
-        pole={selectedPoleModal}
-        onClose={() => setSelectedPoleModal(null)}
-        onSelectPoleForQuote={onSelectPoleForQuote}
-      />
     </section>
   );
 }
