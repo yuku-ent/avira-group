@@ -41,14 +41,14 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           transition: 'all 0.3s ease',
           backgroundColor: isScrolled
             ? 'rgba(255, 255, 255, 0.96)'
-            : 'rgba(255, 255, 255, 0.92)',
+            : 'rgba(255, 255, 255, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderBottom: isScrolled
             ? '1px solid rgba(0, 56, 169, 0.12)'
-            : '1px solid rgba(0, 0, 0, 0.06)',
+            : '1px solid rgba(0, 0, 0, 0.05)',
           boxShadow: isScrolled ? '0 4px 20px rgba(0, 56, 169, 0.08)' : 'none',
-          padding: isScrolled ? '0.65rem 0' : '0.95rem 0',
+          padding: isScrolled ? '0.35rem 0' : '0.5rem 0',
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -63,7 +63,7 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.75rem', marginLeft: 'auto', marginRight: '3rem' }}>
+          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -72,11 +72,10 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
                 style={{
                   fontFamily: 'var(--font-heading)',
                   fontWeight: 600,
-                  fontSize: '0.94rem',
+                  fontSize: '0.9rem',
                   color: 'var(--color-text-main)',
                   transition: 'color 0.2s ease',
                   position: 'relative',
-                  padding: '0.25rem 0',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-orange-avira)')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-main)')}
@@ -87,21 +86,19 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           </nav>
 
           {/* Actions: Contact / Quote Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <button
               onClick={onOpenQuote}
               className="btn btn-primary"
               style={{
-                fontSize: '0.88rem',
-                padding: '0.5rem 1.1rem',
-                minHeight: '40px',
+                fontSize: '0.85rem',
+                padding: '0.45rem 1.1rem',
+                minHeight: '38px',
                 borderRadius: 'var(--radius-md)',
-                gap: '0.45rem',
               }}
             >
               <FileText size={16} />
-              <span className="hide-text-mobile">Demander un devis</span>
-              <span className="visible-mobile" style={{ display: 'none' }}>Devis</span>
+              <span>Demander un devis</span>
             </button>
 
             {/* Mobile Hamburger Toggle */}
