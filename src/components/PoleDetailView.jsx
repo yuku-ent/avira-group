@@ -319,72 +319,53 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           </div>
         </div>
 
-        {/* SECTION 2: Les Prestations du Pôle (Clean Editorial List - No Repetitive Badge Clutter) */}
+        {/* SECTION 2: Les Prestations du Pôle (Clean Editorial Article Layout - Zero Bubbles, Zero Box Cards) */}
         <div style={{ marginBottom: '3rem' }}>
           <div style={{ marginBottom: '2rem' }}>
             <span style={{ fontSize: '0.85rem', color: 'var(--color-orange-avira)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.4rem' }}>
-              Nos Prestations
+              Nos Prestations & Domaines d'Intervention
             </span>
             <h2 style={{ fontSize: '1.85rem', color: 'var(--color-blue-dark)', fontWeight: 800 }}>
-              Périmètre d'Intervention & Solutions
+              Services et Expertises Spécialisées
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
-            {pole.services.map((service, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '2rem',
-                  border: '1px solid var(--color-border)',
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-blue-avira)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-border)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
-                }}
-              >
-                <div>
-                  <h3 style={{ fontSize: '1.25rem', color: 'var(--color-blue-dark)', fontWeight: 700, marginBottom: '0.75rem', lineHeight: 1.35 }}>
+          <div
+            style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: 'var(--radius-lg)',
+              padding: 'clamp(1.75rem, 4vw, 3rem)',
+              border: '1px solid var(--color-border)',
+              boxShadow: 'var(--shadow-sm)',
+            }}
+          >
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2.5rem 3rem' }}>
+              {pole.services.map((service, index) => (
+                <div
+                  key={index}
+                  style={{
+                    borderLeft: '3px solid var(--color-orange-avira)',
+                    paddingLeft: '1.25rem',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: '1.2rem',
+                      color: 'var(--color-blue-dark)',
+                      fontWeight: 700,
+                      marginBottom: '0.5rem',
+                      fontFamily: 'var(--font-heading)',
+                      lineHeight: 1.35,
+                    }}
+                  >
                     {service.name}
                   </h3>
-                  <p style={{ fontSize: '0.96rem', color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '0.96rem', color: 'var(--color-text-muted)', lineHeight: 1.7, margin: 0 }}>
                     {service.desc}
                   </p>
                 </div>
-
-                <div style={{ marginTop: '1.75rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'flex-end' }}>
-                  <button
-                    onClick={() => onSelectPoleForQuote(pole.id)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: 'var(--color-orange-avira)',
-                      fontWeight: 700,
-                      fontSize: '0.88rem',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.3rem',
-                      padding: 0,
-                    }}
-                  >
-                    <span>Demander une étude</span>
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
