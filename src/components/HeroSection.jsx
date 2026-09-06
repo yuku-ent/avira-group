@@ -203,13 +203,16 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             </button>
           </div>
 
-          {/* Diaporama Indicators */}
+          {/* Centered Diaporama Photo Slide Indicators */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.4rem',
-              marginBottom: '2rem',
+              justifyContent: 'center',
+              gap: '0.5rem',
+              marginTop: '0.5rem',
+              marginBottom: '2.5rem',
+              width: '100%',
             }}
           >
             {slides.map((s, idx) => (
@@ -218,14 +221,14 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
                 onClick={() => setCurrentSlide(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 style={{
-                  width: idx === currentSlide ? '28px' : '8px',
-                  height: '8px',
+                  width: idx === currentSlide ? '32px' : '9px',
+                  height: '9px',
                   borderRadius: 'var(--radius-full)',
                   backgroundColor: idx === currentSlide ? 'var(--color-orange-avira)' : 'rgba(255, 255, 255, 0.45)',
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.35)',
                 }}
               />
             ))}
