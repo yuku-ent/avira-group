@@ -33,8 +33,8 @@ export default function Footer({ onOpenQuote }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <Logo variant="white" size="large" />
             <p style={{ fontSize: '0.92rem', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.65, maxWidth: '320px' }}>
-              AVIRA GROUP est un acteur économique majeur fédérant 5 pôles d'excellence indépendants :
-              Audiovisuel, BTP & Immobilier, Impression Numérique, Location de Véhicules et Logistique.
+              AVIRA GROUP est un acteur économique majeur fédérant 6 pôles d'excellence indépendants :
+              Audiovisuel, BTP & Immobilier, Impression Numérique, Location de Véhicules, Logistique et Livraison Express.
             </p>
             <div style={{ display: 'flex', gap: '0.85rem' }}>
               {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
@@ -68,7 +68,7 @@ export default function Footer({ onOpenQuote }) {
             </div>
           </div>
 
-          {/* Col 2: Nos 5 Pôles */}
+          {/* Col 2: Nos 6 Pôles */}
           <div>
             <h4
               style={{
@@ -79,7 +79,7 @@ export default function Footer({ onOpenQuote }) {
                 position: 'relative',
               }}
             >
-              Nos 5 Pôles Métiers
+              Nos 6 Pôles Métiers
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
@@ -88,6 +88,7 @@ export default function Footer({ onOpenQuote }) {
                 { name: '🖨️ Pôle Impression Numérique', href: '#poles' },
                 { name: '🚗 Location & Vente Véhicules', href: '#poles' },
                 { name: '🚛 Transport & Logistique', href: '#poles' },
+                { name: '🚀 Pôle Livraison Express', href: '#poles' },
               ].map((item, idx) => (
                 <li key={idx}>
                   <a

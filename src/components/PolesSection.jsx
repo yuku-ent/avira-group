@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Video, Building2, Printer, Car, Truck, ArrowRight, Check, Sparkles } from 'lucide-react';
+import { Video, Building2, Printer, Car, Truck, Zap, ArrowRight, Check, Sparkles, Clock, ShieldCheck } from 'lucide-react';
 
 export const polesDataList = [
   {
@@ -8,6 +8,7 @@ export const polesDataList = [
     category: 'medias',
     icon: Video,
     color: '#8B5CF6',
+    image: '/images/service_audiovisuel.jpg',
     subtitle: 'Production Vidéo 4K, Live Streaming, Événementiel & Studios Multi-Caméras',
     description: 'Ingénierie créative et technique complète : régie mobile 4K UHD, captation direct, films d’entreprise et studios entièrement équipés.',
     fullDescription: "Le Pôle Audiovisuel d'AVIRA GROUP orchestre des productions audiovisuelles d'envergure institutionnelle, commerciale et événementielle. Grâce à nos équipements cinématographiques 4K/6K, nos drones certifiés et nos régies nomades autonomes, nous transformons votre image de marque en récits visuels percutants et diffusions directes sans faille.",
@@ -69,6 +70,7 @@ export const polesDataList = [
     category: 'construction',
     icon: Building2,
     color: '#D97706',
+    image: '/images/service_btp.jpg',
     subtitle: 'Gros Œuvre, Génie Civil, Rénovation Énergétique & Promotion Immobilière',
     description: "Conception, construction et gestion de patrimoine : bâtiments tertiaires, industriels, logements et réhabilitations HQE.",
     fullDescription: "Du premier coup de pioche jusqu'à la remise des clés, le Pôle BTP & Immobilier d'AVIRA GROUP garantit la réussite de vos ouvrages d'envergure. Nous conjuguons ingénierie structurelle, équipements lourds de pointe et normes environnementales rigoureuses pour livrer des bâtiments durables.",
@@ -130,6 +132,7 @@ export const polesDataList = [
     category: 'medias',
     icon: Printer,
     color: '#06B6D4',
+    image: '/images/service_impression.jpg',
     subtitle: 'Grand Format, Signalétique d’Entreprise, Total Covering & Packaging',
     description: "Atelier numérique haute définition : traceurs écologiques Latex/UV, tables de découpe Zünd et équipes de pose sur site.",
     fullDescription: "Le Pôle Impression Numérique d'AVIRA GROUP donne vie à votre identité visuelle sur tous les supports. Équipé d'une chaîne graphique de dernière génération et d'encres éco-responsables, notre atelier produit bâches, enseignes, panneaux et marquages de véhicules avec une fidélité chromatique irréprochable et une durabilité éprouvée.",
@@ -191,6 +194,7 @@ export const polesDataList = [
     category: 'mobilite',
     icon: Car,
     color: '#EF4444',
+    image: '/images/service_vehicules.jpg',
     subtitle: 'Gestion de Flottes, Utilitaires, Berlines & Engins Spécialisés BTP',
     description: "Solutions souples en LLD, LCD et vente : flottes d'entreprise révisées, berlines de fonction et engins de chantier avec assistance 24/7.",
     fullDescription: "Garantissez la mobilité et la productivité de vos équipes grâce au Pôle Location & Vente de Véhicules d'AVIRA GROUP. Nous proposons un parc moderne de véhicules régulièrement révisés et personnalisables selon vos contraintes d'activité (logistique, chantier, transports d'affaires).",
@@ -252,6 +256,7 @@ export const polesDataList = [
     category: 'mobilite',
     icon: Truck,
     color: '#10B981',
+    image: '/images/service_logistique.jpg',
     subtitle: 'Fret Routier, Transport Frigorifique, Entreposage Sécurisé & Cross-Docking',
     description: "Maîtrise globale de la supply chain : transport de marchandises national/international, stockage sous-douane et suivi GPS 24/7.",
     fullDescription: "Le Pôle Transport & Logistique d'AVIRA GROUP sécurise l'acheminement de vos flux de marchandises. Grâce à une flotte de camions Euro 6 / décarbonés, des entrepôts sécurisés et des outils TMS/WMS connectés, nous assurons une traçabilité totale et le respect strict de vos délais de livraison.",
@@ -265,7 +270,7 @@ export const polesDataList = [
       { name: 'Transport Routier de Fret (FTL / LTL)', desc: 'Acheminement de lots complets et partiels en France, Afrique de l’Ouest et à l’International.' },
       { name: 'Transport Frigorifique (Chaîne du Froid)', desc: 'Transport sous température contrôlée (-20°C à +20°C) pour produits pharmaceutiques et alimentaires.' },
       { name: 'Entreposage, Stockage & Sous-Douane', desc: 'Plateformes logistiques sécurisées sous gardiennage 24/7 avec gestion des formalités douanières.' },
-      { name: 'Livraison Express Dernier Kilomètre', desc: 'Distribution urbaine réactive pour colis urgents avec flotte utilitaire électrique/hybride.' },
+      { name: 'Livraison Dernier Kilomètre', desc: 'Distribution urbaine réactive pour colis et marchandises avec flotte utilitaire décarbonée.' },
       { name: 'Logistique e-Commerce & Fulfillment', desc: 'Préparation de commandes, conditionnement, étiquetage et gestion des retours (reverse logistics).' },
       { name: 'Manutention Lourde & Levage Industriel', desc: 'Chargement/déchargement de conteneurs, machines industrielles et fardeaux volumineux.' }
     ],
@@ -306,126 +311,80 @@ export const polesDataList = [
         a: 'Oui, de la réception de vos stocks à l’emballage personnalisé et l’expédition dernier kilomètre.'
       }
     ]
+  },
+  {
+    id: 'express',
+    title: 'Livraison Express',
+    category: 'express',
+    icon: Zap,
+    color: '#FE6102',
+    image: '/images/service_express.jpg',
+    subtitle: 'Courses Dédiées, Colis Urgents & Distribution Urbaine Dernier Kilomètre 24/7',
+    description: "Service ultra-réactif pour l'expédition en urgence absolue : coursiers dédiés, navettes urbaines électriques et livraison H+1 / H+2 avec suivi en direct.",
+    fullDescription: "Le Pôle Livraison Express d'AVIRA GROUP répond aux contraintes de rapidité les plus strictes. Qu'il s'agisse de plis confidentiels, de pièces détachées industrielles critiques, de palettes urgentes ou de livraisons e-commerce dernier kilomètre, nous déployons immédiatement un coursier dédié géolocalisé en temps réel.",
+    stats: [
+      { label: 'Livraisons Annuelles', value: '+15 000' },
+      { label: 'Temps Moyen Enlèvement', value: '< 30 Min' },
+      { label: 'Suivi En Direct', value: 'GPS Live' },
+      { label: 'Disponibilité', value: '24h / 7j' }
+    ],
+    services: [
+      { name: 'Course Dédiée & Enlèvement Immédiat', desc: 'Prise en charge prioritaire par coursier dédié en moins de 30 minutes pour livraison directe sans rupture de charge.' },
+      { name: 'Livraison Colis Urgents H+1 / H+2', desc: 'Acheminement express intra-urbain et régional garanti dans des délais record avec accusé de réception électronique.' },
+      { name: 'Transport Sécurisé de Plis & Documents', desc: 'Transfert confidentiel de contrats, dossiers juridiques et échantillons sensibles sous scellé sécurisé.' },
+      { name: 'Distribution Urbaine Éco-Responsable', desc: 'Flotte 100% électrique et vélos-cargos pour accéder sans restriction aux zones ZFE et cœurs de ville.' },
+      { name: 'Navettes Régulières d’Entreprises', desc: 'Liaisons quotidiennes planifiées entre vos différents sites, filiales, agences et partenaires d’affaires.' },
+      { name: 'Pièces Indispensables & Urgences BTP', desc: 'Livraison en urgence sur chantier ou site de production pour éviter tout arrêt ou rupture de chaîne.' }
+    ],
+    equipment: [
+      'Fourgons express électriques & utilitaires légers équipés de géolocalisation temps réel',
+      'Scooters et vélos-cargos urbains pour contourner les embouteillages du centre-ville',
+      'Sacs et caisses isothermes / sécurisés pour transport de documents et produits fragiles',
+      'Application mobile coursier connectée avec signature électronique du destinataire',
+      'Plateforme de dispatching intelligent optimisant instantanément les trajets d’urgence'
+    ],
+    methodology: [
+      { step: '01', title: 'Commande & Déclenchement Express', desc: 'Validation instantanée du point d’enlèvement et affectation du coursier le plus proche.' },
+      { step: '02', title: 'Enlèvement sous 30 Min', desc: 'Arrivée du coursier sur site, scellé du colis et notification de départ au destinataire.' },
+      { step: '03', title: 'Acheminement Direct GPS', desc: 'Trajet optimisé sans arrêt intermédiaire avec suivi de la position exacte sur carte interactive.' },
+      { step: '04', title: 'Remise en Main Propre & POD', desc: 'Livraison contre signature numérique et confirmation instantanée par SMS / Email.' }
+    ],
+    highlights: [
+      'Garantie d’enlèvement en moins de 30 minutes sur la zone métropolitaine',
+      'Liaison directe sans aucun regroupement en centre de tri pour une rapidité absolue',
+      'Traçabilité GPS en temps réel accessible directement sur votre smartphone',
+      'Service disponible 24h/24, 7j/7 et jours fériés avec permanence téléphonique dédiée'
+    ],
+    faq: [
+      {
+        q: 'En combien de temps un coursier peut-il venir récupérer mon colis urgent ?',
+        a: 'Dès la confirmation de votre demande, notre système affecte le coursier le plus proche qui intervient en moins de 30 minutes.'
+      },
+      {
+        q: 'Comment fonctionne la preuve de livraison en temps réel ?',
+        a: 'Dès la remise du colis au destinataire, celui-ci signe sur le terminal du coursier et une notification avec horodatage vous est transmise.'
+      },
+      {
+        q: 'Livrez-vous la nuit, les week-ends et les jours fériés ?',
+        a: 'Oui, notre Pôle Livraison Express opère 24h/24 et 7j/7 pour répondre aux urgences industrielles, médicales et d’entreprises.'
+      },
+      {
+        q: 'Quels types de véhicules utilisez-vous pour les livraisons rapides ?',
+        a: 'Nous adaptons le véhicule au volume : du vélo-cargo et deux-roues pour les plis urgents jusqu’au fourgon électrique 12m³ pour les palettes d’urgence.'
+      }
+    ]
   }
 ];
 
 export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail }) {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const polesData = [
-    {
-      id: 'audiovisuel',
-      title: 'Audiovisuel',
-      category: 'medias',
-      icon: Video,
-      color: '#8B5CF6',
-      subtitle: 'Production Vidéo, Événementiel & Studio Multi-Caméras',
-      description: 'Conception, réalisation et diffusion de contenus audiovisuels haute définition pour entreprises, événements et médias.',
-      fullDescription: "Le Pôle Audiovisuel d'AVIRA GROUP déploie une ingénierie créative et technique de pointe : régie mobile 4K, captation en direct, studios équipés et production vidéo institutionnelle sur mesure.",
-      services: [
-        { name: 'Captation & Live Streaming', desc: 'Diffusion en direct multi-caméras 4K pour conférences et événements.' },
-        { name: 'Production Vidéo Corporate', desc: 'Films d’entreprise, spots publicitaires et vidéos de marque.' },
-        { name: 'Studio & Post-Production', desc: 'Montage, étalonnage, motion design et mixage son professionnel.' },
-        { name: 'Couverture Événementielle', desc: 'Prise de vue aérienne (drone) et reportages terrain.' }
-      ],
-      highlights: [
-        'Régie technique mobile UHD/4K tout terrain',
-        'Équipe technique qualifiée disponible 7j/7',
-        'Livraison rapide et formats optimisés multi-plateformes'
-      ]
-    },
-    {
-      id: 'btp',
-      title: 'BTP & Immobilier',
-      category: 'construction',
-      icon: Building2,
-      color: '#D97706',
-      subtitle: 'Gros Œuvre, Rénovation & Promotion Immobilière',
-      description: "Construction de bâtiments industriels et commerciaux, gérance immobilière et programmes de rénovation énergétique d'envergure.",
-      fullDescription: "De l'étude de faisabilité architecturale jusqu'à la remise des clés, notre Pôle BTP & Immobilier allie rigueur de construction, normes environnementales et gestion du patrimoine immobilier.",
-      services: [
-        { name: 'Construction & Gros Œuvre', desc: 'Bâtiments tertiaires, industriels et logements résidentiels.' },
-        { name: 'Rénovation Énergétique', desc: 'Audit, isolation thermique et réhabilitation globale.' },
-        { name: 'Promotion & Aménagement', desc: 'Développement de programmes et gestion de projets immobiliers.' },
-        { name: 'Gestion de Patrimoine', desc: 'Gérance locative et maintenance des infrastructures.' }
-      ],
-      highlights: [
-        'Certifications HQE et conformité normes RE2020',
-        'Supervision globale de chantier et respect des délais',
-        'Interlocuteur unique pour maîtres d’ouvrage'
-      ]
-    },
-    {
-      id: 'impression',
-      title: 'Impression Numérique',
-      category: 'medias',
-      icon: Printer,
-      color: '#06B6D4',
-      subtitle: 'Grand Format, Signalétique & Habillage Publicitaire',
-      description: "Impression numérique haute définition sur tous supports, création de signalétique d'entreprise et habillage de véhicules.",
-      fullDescription: "Équipé de traceurs et presses numériques de dernière génération, ce pôle fabrique vos supports de communication visuelle avec une restitution chromatique parfaite et une durabilité éprouvée.",
-      services: [
-        { name: 'Impression Grand Format', desc: 'Bâches, bannières, affiches et panneaux publicitaires.' },
-        { name: 'Signalétique d’Entreprise', desc: 'Enseignes lumineuses, totems, plaques et marquage au sol.' },
-        { name: 'Total Covering & Véhicules', desc: 'Flocage et habillage adhésif haute résistance de flottes.' },
-        { name: 'Print & Packaging Sur-Mesure', desc: 'Brochures d’art, coffrets et catalogues haut de gamme.' }
-      ],
-      highlights: [
-        'Encres écologiques et résistant aux UV / intempéries',
-        'Atelier de façonnage et pose sur site incluse',
-        'Contrôle qualité rigoureux avant livraison'
-      ]
-    },
-    {
-      id: 'vehicules',
-      title: 'Location & Vente de Véhicules',
-      category: 'mobilite',
-      icon: Car,
-      color: '#EF4444',
-      subtitle: 'Gestion de Flottes, Utilitaires & Engins de Chantier',
-      description: "Solutions souples de location courte et longue durée de véhicules utilitaires, berlines et engins spécialisés pour professionnels.",
-      fullDescription: "AVIRA GROUP garantit la mobilité des entreprises grâce à une flotte moderne de véhicules régulièrement révisés et adaptés aux besoins logistiques, de chantier ou de transport de personnel.",
-      services: [
-        { name: 'Location Longue Durée (LLD)', desc: 'Flottes d’entreprises sur-mesure avec entretien inclus.' },
-        { name: 'Location Court & Moyen Terme', desc: 'Utilitaires, camions bennes et véhicules de remplacement.' },
-        { name: 'Engins Spécialisés BTP', desc: 'Nacelles, mini-pelles et engins de manutention.' },
-        { name: 'Vente & Reprise de Véhicules', desc: 'Véhicules récents avec garantie constructeur.' }
-      ],
-      highlights: [
-        'Assistance 24/7 et véhicule de remplacement immédiat',
-        'Maintenance préventive intégrée',
-        'Contrats flexibles modulables selon vos pics d’activité'
-      ]
-    },
-    {
-      id: 'logistique',
-      title: 'Transport & Logistique',
-      category: 'mobilite',
-      icon: Truck,
-      color: '#10B981',
-      subtitle: 'Fret Routier, Stockage Sécurisé & Livraison Express',
-      description: "Acheminement national et international de marchandises, entreposage sous sous-douane et logistique du dernier kilomètre.",
-      fullDescription: "Fort d'un réseau structuré et de plateformes logistiques sécurisées, le Pôle Transport & Logistique d'AVIRA GROUP sécurise votre chaîne d'approvisionnement avec une traçabilité GPS en temps réel.",
-      services: [
-        { name: 'Transport Routier de Fret', desc: 'Lots complets et partiels en France et à l’international.' },
-        { name: 'Entreposage & Stockage', desc: 'Plateformes logistiques sécurisées et sous température contrôlée.' },
-        { name: 'Livraison Express', desc: 'Acheminement urgent 24h/48h avec suivi GPS en direct.' },
-        { name: 'Logistique e-Commerce', desc: 'Préparation de commandes, cross-docking et gestion des retours.' }
-      ],
-      highlights: [
-        'Suivi des expéditions en temps réel via portail client',
-        'Respect strict de la chaîne du froid et des délais',
-        'Flotte de transport décarbonée (Norme Euro 6 / Électrique)'
-      ]
-    }
-  ];
-
   const filteredPoles = activeFilter === 'all'
-    ? polesData
-    : polesData.filter(p => p.category === activeFilter);
+    ? polesDataList
+    : polesDataList.filter(p => p.category === activeFilter);
 
   return (
-    <section id="poles" className="section" style={{ backgroundColor: 'var(--color-bg-light)' }}>
+    <section id="poles" className="section" style={{ backgroundColor: 'var(--color-bg-light)', padding: '5rem 0' }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
@@ -434,10 +393,10 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
             <span>Nos Domaines d'Expertise</span>
           </span>
           <h2 className="section-title">
-            5 Pôles d'Activité Spécialisés, <br />
+            6 Pôles d'Activité Spécialisés, <br />
             <span className="text-avira-orange">Une Seule Exigence de Qualité</span>
           </h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>
+          <p className="section-subtitle" style={{ margin: '0 auto', maxWidth: '750px' }}>
             Chaque pôle dispose de ses propres équipes d'experts et d'équipements de pointe,
             tout en bénéficiant de la puissance d'organisation et de la synergie du groupe AVIRA.
           </p>
@@ -454,19 +413,21 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
               borderRadius: 'var(--radius-full)',
               boxShadow: 'var(--shadow-sm)',
               border: '1px solid var(--color-border)',
+              justifyContent: 'center',
             }}
           >
             {[
-              { id: 'all', label: 'Tous les 5 Pôles' },
+              { id: 'all', label: 'Tous les 6 Pôles' },
               { id: 'medias', label: 'Médias & Communication' },
               { id: 'construction', label: 'BTP & Immobilier' },
-              { id: 'mobilite', label: 'Mobilité & Logistique' },
+              { id: 'mobilite', label: 'Mobilité & Fret' },
+              { id: 'express', label: '🚀 Livraison Express' },
             ].map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
                 style={{
-                  padding: '0.5rem 1.1rem',
+                  padding: '0.55rem 1.25rem',
                   borderRadius: 'var(--radius-full)',
                   border: 'none',
                   fontFamily: 'var(--font-heading)',
@@ -484,13 +445,12 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
           </div>
         </div>
 
-        {/* 5 Pole Cards Balanced Grid Layout */}
+        {/* 6 Visual Services Grid Layout with High Quality Images */}
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
             gap: '2rem',
-            justifyContent: 'center',
           }}
         >
           {filteredPoles.map((pole) => {
@@ -498,134 +458,190 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
             return (
               <div
                 key={pole.id}
-                className="glass-card"
                 style={{
-                  flex: '1 1 320px',
-                  maxWidth: '380px',
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-md)',
+                  border: '1px solid var(--color-border)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  padding: '2rem',
-                  transition: 'all 0.3s ease',
-                  borderTop: `4px solid ${pole.color}`,
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   position: 'relative',
-                  overflow: 'hidden',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-6px)';
                   e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+                  const img = e.currentTarget.querySelector('.card-hero-img');
+                  if (img) img.style.transform = 'scale(1.06)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+                  const img = e.currentTarget.querySelector('.card-hero-img');
+                  if (img) img.style.transform = 'scale(1.0)';
                 }}
               >
                 <div>
-                  {/* Icon & Category */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '1.5rem',
-                    }}
-                  >
+                  {/* Top Image Banner with Gradient Overlay */}
+                  <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+                    <img
+                      className="card-hero-img"
+                      src={pole.image}
+                      alt={pole.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s ease',
+                      }}
+                    />
                     <div
                       style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: 'var(--radius-md)',
-                        backgroundColor: 'var(--color-blue-light)',
-                        color: 'var(--color-blue-avira)',
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(to top, rgba(0, 24, 75, 0.85) 0%, rgba(0, 24, 75, 0.2) 60%, transparent 100%)',
+                      }}
+                    />
+
+                    {/* Floating Header Tag & Icon */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '1rem',
+                        left: '1rem',
+                        right: '1rem',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
+                        justifyContent: 'space-between',
                       }}
                     >
-                      <Icon size={28} color="var(--color-blue-avira)" />
-                    </div>
-
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.78rem',
-                        fontWeight: 600,
-                        padding: '0.25rem 0.65rem',
-                        backgroundColor: 'rgba(0, 56, 169, 0.06)',
-                        color: 'var(--color-blue-avira)',
-                        borderRadius: 'var(--radius-sm)',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      Pôle #{pole.id}
-                    </span>
-                  </div>
-
-                  {/* Title & Subtitle */}
-                  <h3
-                    style={{
-                      fontSize: '1.45rem',
-                      color: 'var(--color-blue-avira)',
-                      marginBottom: '0.4rem',
-                    }}
-                  >
-                    {pole.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontWeight: 600,
-                      fontSize: '0.9rem',
-                      color: 'var(--color-orange-avira)',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    {pole.subtitle}
-                  </p>
-
-                  <p
-                    style={{
-                      fontSize: '0.95rem',
-                      color: 'var(--color-text-muted)',
-                      lineHeight: 1.6,
-                      marginBottom: '1.5rem',
-                    }}
-                  >
-                    {pole.description}
-                  </p>
-
-                  {/* Prestations Preview List */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.5rem',
-                      marginBottom: '2rem',
-                    }}
-                  >
-                    {pole.services.slice(0, 3).map((s, i) => (
-                      <div
-                        key={i}
+                      <span
                         style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.5rem',
-                          fontSize: '0.88rem',
-                          color: 'var(--color-text-main)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(8px)',
+                          color: 'var(--color-blue-avira)',
+                          fontFamily: 'var(--font-heading)',
+                          fontWeight: 700,
+                          fontSize: '0.78rem',
+                          padding: '0.3rem 0.75rem',
+                          borderRadius: 'var(--radius-full)',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.04em',
                         }}
                       >
-                        <Check size={16} color="var(--color-orange-avira)" style={{ flexShrink: 0 }} />
-                        <span>{s.name}</span>
+                        Pôle #{pole.id}
+                      </span>
+
+                      <div
+                        style={{
+                          width: '42px',
+                          height: '42px',
+                          borderRadius: '50%',
+                          backgroundColor: pole.color,
+                          color: '#FFFFFF',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                        }}
+                      >
+                        <Icon size={22} color="#FFFFFF" />
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Title overlaid on bottom of image for sleek look */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: '1rem',
+                        left: '1.25rem',
+                        right: '1.25rem',
+                      }}
+                    >
+                      <h3
+                        style={{
+                          fontSize: '1.45rem',
+                          color: '#FFFFFF',
+                          fontWeight: 800,
+                          margin: 0,
+                          textShadow: '0 2px 6px rgba(0,0,0,0.5)',
+                        }}
+                      >
+                        {pole.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Card Content Body */}
+                  <div style={{ padding: '1.5rem 1.5rem 1rem 1.5rem' }}>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
+                        color: 'var(--color-orange-avira)',
+                        marginBottom: '0.75rem',
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {pole.subtitle}
+                    </p>
+
+                    <p
+                      style={{
+                        fontSize: '0.92rem',
+                        color: 'var(--color-text-muted)',
+                        lineHeight: 1.6,
+                        marginBottom: '1.25rem',
+                      }}
+                    >
+                      {pole.description}
+                    </p>
+
+                    {/* Prestations Visual Highlights Badges */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.45rem',
+                        marginBottom: '1.25rem',
+                        padding: '0.85rem 1rem',
+                        backgroundColor: 'var(--color-bg-light)',
+                        borderRadius: 'var(--radius-md)',
+                        border: '1px solid rgba(0, 56, 169, 0.08)',
+                      }}
+                    >
+                      {pole.services.slice(0, 3).map((s, i) => (
+                        <div
+                          key={i}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            fontSize: '0.85rem',
+                            color: 'var(--color-text-main)',
+                            fontWeight: 500,
+                          }}
+                        >
+                          <Check size={15} color="var(--color-orange-avira)" style={{ flexShrink: 0 }} />
+                          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                            {s.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Card Action Link to Detail Page */}
+                {/* Card Footer Action Link */}
                 <div
                   style={{
                     borderTop: '1px solid var(--color-border)',
-                    paddingTop: '1.2rem',
+                    padding: '1rem 1.5rem',
+                    backgroundColor: '#FAFAFA',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -636,19 +652,33 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: 'var(--color-orange-avira)',
+                      color: 'var(--color-blue-avira)',
                       fontFamily: 'var(--font-heading)',
                       fontWeight: 700,
-                      fontSize: '0.95rem',
+                      fontSize: '0.92rem',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '0.5rem',
+                      gap: '0.4rem',
                       padding: 0,
                     }}
                   >
-                    <span>En savoir plus</span>
-                    <ArrowRight size={18} />
+                    <span>Explorer le pôle</span>
+                    <ArrowRight size={16} color="var(--color-orange-avira)" />
+                  </button>
+
+                  <button
+                    onClick={() => onSelectPoleForQuote && onSelectPoleForQuote(pole.id)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--color-orange-avira)',
+                      fontWeight: 600,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Devis rapide
                   </button>
                 </div>
               </div>

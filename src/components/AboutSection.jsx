@@ -67,12 +67,12 @@ export default function AboutSection({ onOpenQuote }) {
 
               <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.02rem', lineHeight: 1.7, marginBottom: '2rem' }}>
                 Créé avec l'ambition d'offrir une réponse globale et maîtrisée aux défis des entreprises et collectivités,
-                AVIRA GROUP s'est développé autour de 5 pôles d'excellence indépendants mais hautement connectés.
+                AVIRA GROUP s'est développé autour de 6 pôles d'excellence indépendants mais hautement connectés.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 {[
-                  '5 filiales spécialisées et autonomes',
+                  '6 filiales spécialisées et autonomes',
                   'Une gouvernance unifiée garantissant réactivité et maîtrise des coûts',
                   'Des infrastructures logistiques et techniques de premier plan',
                 ].map((item, idx) => (
@@ -97,7 +97,7 @@ export default function AboutSection({ onOpenQuote }) {
             </h2>
 
             <p className="section-subtitle" style={{ marginBottom: '2.5rem' }}>
-              En réunissant l'Audiovisuel, le BTP, l'Impression Numérique, la Gestion de Véhicules et la Logistique sous une même enseigne,
+              En réunissant l'Audiovisuel, le BTP, l'Impression Numérique, la Gestion de Véhicules, la Logistique et la Livraison Express sous une même enseigne,
               AVIRA GROUP supprime la complexité de gestion multi-prestataires pour ses clients.
             </p>
 

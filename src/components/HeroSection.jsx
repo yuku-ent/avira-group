@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Layers, Award, Sparkles, Building2, Truck, Video, Printer, Car } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Layers, Award, Sparkles, Building2, Truck, Video, Printer, Car, Zap } from 'lucide-react';
 
 export default function HeroSection({ onOpenQuote, onExplorePoles }) {
   const polesSummary = [
@@ -8,10 +8,11 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
     { icon: Printer, label: 'Impression Numérique' },
     { icon: Car, label: 'Location & Véhicules' },
     { icon: Truck, label: 'Transport & Logistique' },
+    { icon: Zap, label: 'Livraison Express' },
   ];
 
   const stats = [
-    { value: '05', label: "Pôles d'Activité" },
+    { value: '06', label: "Pôles d'Activité" },
     { value: '+150', label: 'Collaborateurs Experts' },
     { value: '+500', label: 'Projets Réalisés' },
     { value: '98.4%', label: 'Taux de Satisfaction' },
@@ -84,7 +85,7 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
         >
           <Sparkles size={16} color="var(--color-orange-avira)" />
           <span>Groupe Multi-Sectoriel Leader</span>
-          <span style={{ color: 'var(--color-orange-avira)', fontWeight: 800 }}>• 5 Pôles Métiers</span>
+          <span style={{ color: 'var(--color-orange-avira)', fontWeight: 800 }}>• 6 Pôles Métiers</span>
         </div>
 
         {/* Main Headline */}
@@ -113,9 +114,9 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
               fontWeight: 400,
             }}
           >
-            AVIRA GROUP réunit et orchestre 5 domaines d'expertise complémentaires.
-            De la production audiovisuelle au transport logistique, en passant par le BTP,
-            l'impression numérique et la location de véhicules : nous transformons vos besoins complexes en réussites fluides.
+            AVIRA GROUP réunit et orchestre 6 domaines d'expertise complémentaires.
+            De la production audiovisuelle à la livraison express 24/7, en passant par le BTP,
+            l'impression numérique, la location de véhicules et le transport logistique : nous transformons vos besoins complexes en réussites fluides.
           </p>
 
           {/* Action CTAs */}
@@ -137,7 +138,7 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
                 minHeight: '52px',
               }}
             >
-              <span>Explorer nos 5 pôles</span>
+              <span>Explorer nos 6 pôles</span>
               <ArrowRight size={20} />
             </button>
 

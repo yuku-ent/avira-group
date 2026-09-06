@@ -82,6 +82,13 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
           highlight: 'Fret Routier & Stockage Sécurisé',
           desc: 'Expédition routière, stockage ou livraison express. Obtenez un chiffrage de transport adapté avec traçabilité GPS.',
         };
+      case 'express':
+        return {
+          badge: 'Livraison Express & Course Dédiée 24/7',
+          title: 'Besoin d\'un Enlèvement ou d\'une Livraison Urgente ?',
+          highlight: 'Intervention En Moins De 30 Minutes',
+          desc: 'Indiquez les adresses d\'enlèvement et de destination. Nos coursiers prennent en charge vos plis, colis et fret urgent 24h/24.',
+        };
       default:
         return {
           badge: 'Contact & Demande de Devis Général',
@@ -450,6 +457,7 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
                     <option value="impression">Pôle 🖨️ Impression Numérique</option>
                     <option value="vehicules">Pôle 🚗 Location & Vente de Véhicules</option>
                     <option value="logistique">Pôle 🚛 Transport & Logistique</option>
+                    <option value="express">Pôle 🚀 Livraison Express (24/7)</option>
                   </select>
                 </div>
 

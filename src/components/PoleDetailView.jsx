@@ -71,6 +71,13 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           subtitle: 'Sécurisez votre chaîne d\'approvisionnement avec notre flotte décarbonée et suivi GPS en temps réel.',
           buttonText: 'Calculer un devis Transport & Fret',
         };
+      case 'express':
+        return {
+          badge: 'Urgence Absolue & Course Dédiée 24/7',
+          title: 'Un pli confidentiel, colis urgent ou besoin de livraison H+1 ?',
+          subtitle: 'Nos coursiers dédiés et véhicules express interviennent en moins de 30 minutes avec géolocalisation GPS en direct.',
+          buttonText: 'Commander une livraison express',
+        };
       default:
         return {
           badge: 'Expertise Sectorielle AVIRA',
@@ -109,7 +116,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
             }}
           >
             <ArrowLeft size={16} />
-            <span>Retour aux 5 services</span>
+            <span>Retour aux 6 services</span>
           </button>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text-muted)' }}>
@@ -124,19 +131,42 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
 
       {/* Main Structured Page Content */}
       <div className="container" style={{ marginTop: '2rem' }}>
-        {/* Pôle Hero Banner */}
+        {/* Pôle Hero Banner with Background Image Overlay */}
         <div
           style={{
-            background: `linear-gradient(135deg, ${pole.color} 0%, #001F60 100%)`,
-            borderRadius: 'var(--radius-lg)',
-            padding: 'clamp(2rem, 4vw, 3.5rem)',
-            color: '#FFFFFF',
             position: 'relative',
+            borderRadius: 'var(--radius-lg)',
             overflow: 'hidden',
             boxShadow: 'var(--shadow-lg)',
             marginBottom: '3rem',
+            minHeight: '420px',
+            display: 'flex',
+            alignItems: 'center',
           }}
         >
+          {/* Background Image */}
+          {pole.image && (
+            <img
+              src={pole.image}
+              alt={pole.title}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
+          )}
+
+          {/* Dark Gradient Overlay for Maximum Readability */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: `linear-gradient(135deg, rgba(0, 24, 75, 0.92) 0%, rgba(0, 31, 96, 0.85) 60%, ${pole.color}D9 100%)`,
+            }}
+          />
           {/* Subtle Background Pattern */}
           <div
             style={{
