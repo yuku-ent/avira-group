@@ -1,7 +1,25 @@
-import React from 'react';
-import { ArrowRight, ShieldCheck, Layers, Award, Sparkles, Building2, Truck, Video, Printer, Car, Zap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, ShieldCheck, Layers, Award, Sparkles, Building2, Truck, Video, Printer, Car, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function HeroSection({ onOpenQuote, onExplorePoles }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    { image: '/images/service_audiovisuel.jpg', title: 'Audiovisuel', tag: 'Production Vidéo 4K' },
+    { image: '/images/service_btp.jpg', title: 'BTP & Immobilier', tag: 'Gros Œuvre & Génie Civil' },
+    { image: '/images/service_impression.jpg', title: 'Impression Numérique', tag: 'Grand Format & Signalétique' },
+    { image: '/images/service_vehicules.jpg', title: 'Location Véhicules', tag: 'Flottes & Utilitaires' },
+    { image: '/images/service_logistique.jpg', title: 'Transport & Logistique', tag: 'Fret & Entreposage' },
+    { image: '/images/service_express.jpg', title: 'Livraison Express', tag: 'Coursier 24/7' },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   const polesSummary = [
     { icon: Video, label: 'Audiovisuel' },
     { icon: Building2, label: 'BTP & Immobilier' },
@@ -26,7 +44,7 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
         minHeight: '100vh',
         paddingTop: '5.5rem',
         paddingBottom: '5rem',
-        background: 'radial-gradient(circle at 85% 15%, #00287A 0%, #0038A9 45%, #041235 100%)',
+        backgroundColor: '#041235',
         color: '#FFFFFF',
         overflow: 'hidden',
         display: 'flex',
@@ -34,7 +52,49 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
         justifyContent: 'center',
       }}
     >
-      {/* Dynamic Background Geometric Triangles (Mirroring Logo shape) */}
+      {/* Background Photo Diaporama Slideshow with Smooth Crossfade */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 1 }}>
+        {slides.map((slide, idx) => {
+          const isActive = idx === currentSlide;
+          return (
+            <div
+              key={idx}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                opacity: isActive ? 1 : 0,
+                transition: 'opacity 1.2s ease-in-out',
+                pointerEvents: 'none',
+              }}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  transform: isActive ? 'scale(1.05)' : 'scale(1.0)',
+                  transition: 'transform 6s ease-out',
+                }}
+              />
+            </div>
+          );
+        })}
+
+        {/* Dark Gradient Overlay for Supreme Text Legibility */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(3, 14, 40, 0.88) 0%, rgba(0, 31, 96, 0.82) 50%, rgba(5, 13, 36, 0.92) 100%)',
+            backdropFilter: 'blur(2px)',
+            zIndex: 2,
+          }}
+        />
+      </div>
+
+      {/* Dynamic Background Geometric Triangles */}
       <div
         style={{
           position: 'absolute',
@@ -42,50 +102,40 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
           right: '-5%',
           width: '500px',
           height: '500px',
-          background: 'linear-gradient(135deg, rgba(254, 97, 2, 0.15) 0%, rgba(0, 56, 169, 0) 70%)',
+          background: 'linear-gradient(135deg, rgba(254, 97, 2, 0.2) 0%, rgba(0, 56, 169, 0) 70%)',
           clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
           transform: 'rotate(15deg)',
           pointerEvents: 'none',
+          zIndex: 3,
         }}
         className="animate-float"
       />
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-15%',
-          left: '-5%',
-          width: '600px',
-          height: '600px',
-          background: 'linear-gradient(45deg, rgba(0, 56, 169, 0.3) 0%, rgba(254, 97, 2, 0.1) 100%)',
-          clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-          transform: 'rotate(-25deg)',
-          pointerEvents: 'none',
-        }}
-      />
 
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-        {/* Top Pill Badge */}
+        {/* Top Pill Badge with Active Slide Tag */}
         <div
           style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.6rem',
             padding: '0.45rem 1.1rem',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            backgroundColor: 'rgba(255, 255, 255, 0.12)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
             borderRadius: 'var(--radius-full)',
             fontSize: '0.88rem',
             fontFamily: 'var(--font-heading)',
             fontWeight: 600,
             color: '#FFFFFF',
             marginBottom: '1.75rem',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.15)',
           }}
         >
           <Sparkles size={16} color="var(--color-orange-avira)" />
           <span>Groupe Multi-Sectoriel Leader</span>
-          <span style={{ color: 'var(--color-orange-avira)', fontWeight: 800 }}>• 6 Pôles Métiers</span>
+          <span style={{ color: 'var(--color-orange-avira)', fontWeight: 800 }}>
+            • {slides[currentSlide].tag}
+          </span>
         </div>
 
         {/* Main Headline */}
@@ -125,7 +175,7 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
               flexWrap: 'wrap',
               gap: '1rem',
               alignItems: 'center',
-              marginBottom: '2.5rem',
+              marginBottom: '2rem',
             }}
           >
             <button
@@ -152,6 +202,76 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             >
               <span>Demander un devis rapide</span>
             </button>
+          </div>
+
+          {/* Diaporama Controls & Indicators */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              marginBottom: '2rem',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              {slides.map((s, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  style={{
+                    width: idx === currentSlide ? '26px' : '8px',
+                    height: '8px',
+                    borderRadius: 'var(--radius-full)',
+                    backgroundColor: idx === currentSlide ? 'var(--color-orange-avira)' : 'rgba(255, 255, 255, 0.35)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                />
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <button
+                onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+                aria-label="Previous Slide"
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+                aria-label="Next Slide"
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
           </div>
         </div>
 
