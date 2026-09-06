@@ -257,12 +257,14 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
 
           {/* Right Side: Form */}
           <div
+            id="quote-form"
             style={{
               padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-lg)',
               border: '1px solid var(--color-border)',
               boxShadow: 'var(--shadow-lg)',
+              scrollMarginTop: '85px',
             }}
           >
             {submitted ? (

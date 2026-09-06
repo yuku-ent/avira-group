@@ -19,9 +19,9 @@ export default function App() {
       setSelectedPoleDetail(null);
     }
     setTimeout(() => {
-      const contactElement = document.getElementById('contact');
-      if (contactElement) {
-        contactElement.scrollIntoView({ behavior: 'smooth' });
+      const targetElement = document.getElementById('quote-form') || document.getElementById('contact');
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 50);
   };
