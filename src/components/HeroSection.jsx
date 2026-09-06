@@ -92,12 +92,12 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
         <div style={{ maxWidth: '920px' }}>
           <h1
             style={{
-              fontSize: 'clamp(2.4rem, 5vw, 4.2rem)',
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)',
               fontWeight: 800,
               color: '#FFFFFF',
               lineHeight: 1.12,
               letterSpacing: '-0.03em',
-              marginBottom: '1.5rem',
+              marginBottom: '1rem',
             }}
           >
             L'Excellence & La Synergie <br />
@@ -106,17 +106,16 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
 
           <p
             style={{
-              fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+              fontSize: 'clamp(0.98rem, 1.8vw, 1.15rem)',
               color: 'rgba(255, 255, 255, 0.88)',
-              lineHeight: 1.65,
-              maxWidth: '750px',
-              marginBottom: '2.5rem',
+              lineHeight: 1.6,
+              maxWidth: '720px',
+              marginBottom: '1.75rem',
               fontWeight: 400,
             }}
           >
-            AVIRA GROUP réunit et orchestre 6 domaines d'expertise complémentaires.
-            De la production audiovisuelle à la livraison express 24/7, en passant par le BTP,
-            l'impression numérique, la location de véhicules et le transport logistique : nous transformons vos besoins complexes en réussites fluides.
+            AVIRA GROUP réunit 6 domaines d'expertise complémentaires : Audiovisuel, BTP, Impression Numérique,
+            Location de Véhicules, Transport Logistique et Livraison Express 24/7 pour concrétiser tous vos projets.
           </p>
 
           {/* Action CTAs */}
@@ -124,31 +123,31 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '1.25rem',
+              gap: '1rem',
               alignItems: 'center',
-              marginBottom: '3.5rem',
+              marginBottom: '2.5rem',
             }}
           >
             <button
               onClick={onExplorePoles}
               className="btn btn-primary"
               style={{
-                fontSize: '1.05rem',
-                padding: '0.95rem 2rem',
-                minHeight: '52px',
+                fontSize: '1rem',
+                padding: '0.85rem 1.75rem',
+                minHeight: '48px',
               }}
             >
               <span>Explorer nos 6 pôles</span>
-              <ArrowRight size={20} />
+              <ArrowRight size={18} />
             </button>
 
             <button
               onClick={onOpenQuote}
               className="btn btn-outline-light"
               style={{
-                fontSize: '1.05rem',
-                padding: '0.95rem 2rem',
-                minHeight: '52px',
+                fontSize: '1rem',
+                padding: '0.85rem 1.75rem',
+                minHeight: '48px',
               }}
             >
               <span>Demander un devis rapide</span>
@@ -162,12 +161,12 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
             gap: '0.75rem',
-            padding: 'clamp(1rem, 3vw, 1.5rem)',
+            padding: 'clamp(0.85rem, 2.5vw, 1.25rem)',
             backgroundColor: 'rgba(255, 255, 255, 0.06)',
             backdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.12)',
             borderRadius: 'var(--radius-lg)',
-            marginBottom: '4rem',
+            marginBottom: '2.5rem',
           }}
         >
           {polesSummary.map((pole, idx) => {
@@ -178,17 +177,16 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.85rem',
-                  padding: '0.5rem 0.75rem',
+                  gap: '0.75rem',
+                  padding: '0.4rem 0.6rem',
                   borderRadius: 'var(--radius-md)',
-                  transition: 'background 0.2s ease',
                 }}
               >
                 <div
                   style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '10px',
+                    width: '34px',
+                    height: '34px',
+                    borderRadius: '8px',
                     backgroundColor: 'rgba(254, 97, 2, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
@@ -197,13 +195,13 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
                     flexShrink: 0,
                   }}
                 >
-                  <Icon size={20} />
+                  <Icon size={18} />
                 </div>
                 <span
                   style={{
                     fontFamily: 'var(--font-heading)',
                     fontWeight: 600,
-                    fontSize: '0.92rem',
+                    fontSize: '0.88rem',
                     color: '#FFFFFF',
                   }}
                 >
@@ -214,39 +212,52 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
           })}
         </div>
 
-        {/* Hero Key Stats (Using IBM Plex Mono per brand guidelines) */}
+        {/* Hero Key Stats Grid (Pristine Equal-Height Cards) */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '1.5rem',
+            gap: '1rem',
             borderTop: '1px solid rgba(255, 255, 255, 0.15)',
-            paddingTop: '2.5rem',
-            justifyItems: 'center',
-            alignItems: 'center',
+            paddingTop: '2rem',
           }}
           className="hero-stats-grid"
         >
           {stats.map((stat, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '0.3rem' }}>
+            <div
+              key={i}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                padding: '1.15rem 0.85rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: 'var(--radius-md)',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
               <span
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(2rem, 3.5vw, 3.2rem)',
+                  fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
                   fontWeight: 700,
                   color: 'var(--color-orange-avira)',
-                  lineHeight: 1,
-                  letterSpacing: '-0.02em',
+                  lineHeight: 1.1,
+                  marginBottom: '0.35rem',
                 }}
               >
                 {stat.value}
               </span>
               <span
                 style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '0.9rem',
-                  color: 'rgba(255, 255, 255, 0.75)',
-                  fontWeight: 500,
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.85rem',
+                  color: 'rgba(255, 255, 255, 0.85)',
+                  fontWeight: 600,
+                  lineHeight: 1.25,
                 }}
               >
                 {stat.label}

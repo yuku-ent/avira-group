@@ -3,10 +3,10 @@ import { Award, ShieldCheck, Leaf, Clock, Users, CheckCircle } from 'lucide-reac
 
 export default function StatsSection() {
   const metrics = [
-    { value: '5', suffix: '', label: 'Pôles Spécialisés', desc: 'Audiovisuel, BTP, Print, Véhicules, Logistique' },
-    { value: '500', suffix: '+', label: 'Projets Menés à Bien', desc: 'Pour entreprises, collectivités et institutionnels' },
-    { value: '150', suffix: '+', label: 'Experts Dédiés', desc: 'Ingénieurs, techniciens, chauffeurs et artisans qualifiés' },
-    { value: '98.4', suffix: '%', label: 'Satisfaction Client', desc: 'Basée sur les évaluations d’audit de fin de mission' },
+    { value: '06', suffix: '', label: "Pôles d'Activité", desc: 'Audiovisuel, BTP, Print, Véhicules, Logistique, Express' },
+    { value: '500', suffix: '+', label: 'Projets Réalisés', desc: 'Pour entreprises, collectivités et institutionnels' },
+    { value: '150', suffix: '+', label: 'Collaborateurs Experts', desc: 'Ingénieurs, techniciens, chauffeurs et artisans' },
+    { value: '98.4', suffix: '%', label: 'Satisfaction Client', desc: 'Basée sur les audits de fin de mission' },
   ];
 
   const commitments = [
@@ -52,7 +52,7 @@ export default function StatsSection() {
 
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span
             className="section-tag"
             style={{
@@ -70,14 +70,15 @@ export default function StatsSection() {
           </h2>
         </div>
 
-        {/* Metrics Grid (IBM Plex Mono typography) */}
+        {/* Metrics Grid (Structured 2x2 Mobile, 4-Column Desktop) */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1.25rem',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '1rem',
             marginBottom: '4rem',
           }}
+          className="stats-metrics-grid"
         >
           {metrics.map((m, idx) => (
             <div
@@ -89,28 +90,32 @@ export default function StatsSection() {
                 borderRadius: 'var(--radius-lg)',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
                 transition: 'transform 0.3s ease',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px)')}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
             >
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
                   fontWeight: 700,
                   color: 'var(--color-orange-avira)',
                   lineHeight: 1,
-                  marginBottom: '0.75rem',
+                  marginBottom: '0.5rem',
                 }}
               >
                 {m.value}
-                <span style={{ fontSize: '1.8rem', color: '#FFFFFF' }}>{m.suffix}</span>
+                <span style={{ fontSize: '1.6rem', color: '#FFFFFF' }}>{m.suffix}</span>
               </div>
-              <h4 style={{ fontFamily: 'var(--font-heading)', color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '0.4rem' }}>
+              <h4 style={{ fontFamily: 'var(--font-heading)', color: '#FFFFFF', fontSize: '1rem', marginBottom: '0.3rem' }}>
                 {m.label}
               </h4>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.75)' }}>
+              <p style={{ fontSize: '0.82rem', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.4 }}>
                 {m.desc}
               </p>
             </div>
@@ -164,6 +169,14 @@ export default function StatsSection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (min-width: 768px) {
+          .stats-metrics-grid {
+            grid-template-columns: repeat(4, 1fr) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

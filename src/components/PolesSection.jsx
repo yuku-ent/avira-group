@@ -401,18 +401,13 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
             tout en bénéficiant de la puissance d'organisation et de la synergie du groupe AVIRA.
           </p>
 
-          {/* Category Filter Tabs */}
+          {/* Category Filter Tabs (Clean row, no outer bubble box) */}
           <div
             style={{
-              display: 'inline-flex',
+              display: 'flex',
               flexWrap: 'wrap',
-              gap: '0.4rem',
-              marginTop: '2rem',
-              padding: '0.35rem',
-              backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-lg)',
-              boxShadow: 'var(--shadow-sm)',
-              border: '1px solid var(--color-border)',
+              gap: '0.6rem',
+              marginTop: '1.75rem',
               justifyContent: 'center',
               maxWidth: '100%',
             }}
@@ -423,26 +418,30 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
               { id: 'construction', label: 'BTP & Immobilier' },
               { id: 'mobilite', label: 'Mobilité & Fret' },
               { id: 'express', label: '🚀 Livraison Express' },
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveFilter(tab.id)}
-                style={{
-                  padding: '0.5rem 1rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: 'none',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  backgroundColor: activeFilter === tab.id ? 'var(--color-blue-avira)' : 'transparent',
-                  color: activeFilter === tab.id ? '#FFFFFF' : 'var(--color-text-muted)',
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
+            ].map(tab => {
+              const isActive = activeFilter === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveFilter(tab.id)}
+                  style={{
+                    padding: '0.55rem 1.15rem',
+                    borderRadius: 'var(--radius-full)',
+                    border: isActive ? '1px solid var(--color-blue-avira)' : '1px solid var(--color-border)',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.88rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    backgroundColor: isActive ? 'var(--color-blue-avira)' : '#FFFFFF',
+                    color: isActive ? '#FFFFFF' : 'var(--color-text-main)',
+                    boxShadow: isActive ? 'var(--shadow-sm)' : 'none',
+                  }}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 

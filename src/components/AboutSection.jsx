@@ -34,11 +34,11 @@ export default function AboutSection({ onOpenQuote }) {
           <div style={{ position: 'relative' }}>
             <div
               style={{
-                padding: 'clamp(1.5rem, 4vw, 3rem)',
+                padding: '1.75rem 1.5rem',
                 background: 'linear-gradient(145deg, #0038A9 0%, #001F60 100%)',
                 borderRadius: 'var(--radius-lg)',
                 color: '#FFFFFF',
-                boxShadow: 'var(--shadow-lg)',
+                boxShadow: 'var(--shadow-md)',
                 position: 'relative',
                 overflow: 'hidden',
               }}
@@ -49,36 +49,35 @@ export default function AboutSection({ onOpenQuote }) {
                   position: 'absolute',
                   top: '-20%',
                   right: '-10%',
-                  width: '300px',
-                  height: '300px',
+                  width: '240px',
+                  height: '240px',
                   background: 'rgba(254, 97, 2, 0.2)',
                   clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
                   transform: 'rotate(45deg)',
                 }}
               />
 
-              <Logo variant="white" size="large" className="mb-6" />
+              <Logo variant="white" size="medium" />
 
-              <div style={{ width: '50px', height: '4px', backgroundColor: 'var(--color-orange-avira)', borderRadius: '2px', margin: '1.5rem 0' }} />
+              <div style={{ width: '40px', height: '3px', backgroundColor: 'var(--color-orange-avira)', borderRadius: '2px', margin: '1rem 0' }} />
 
-              <h3 style={{ color: '#FFFFFF', fontSize: '1.75rem', marginBottom: '1rem', lineHeight: 1.3 }}>
-                Une organisation intégrée pensée pour concrétiser vos ambitions
+              <h3 style={{ color: '#FFFFFF', fontSize: '1.35rem', marginBottom: '0.75rem', lineHeight: 1.3 }}>
+                Une organisation intégrée pensée pour vos ambitions
               </h3>
 
-              <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.02rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-                Créé avec l'ambition d'offrir une réponse globale et maîtrisée aux défis des entreprises et collectivités,
-                AVIRA GROUP s'est développé autour de 6 pôles d'excellence indépendants mais hautement connectés.
+              <p style={{ color: 'rgba(255, 255, 255, 0.88)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                AVIRA GROUP orchestre 6 pôles d'excellence indépendants mais hautement connectés pour offrir une réponse globale et maîtrisée aux entreprises.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 {[
-                  '6 filiales spécialisées et autonomes',
-                  'Une gouvernance unifiée garantissant réactivité et maîtrise des coûts',
-                  'Des infrastructures logistiques et techniques de premier plan',
+                  '6 pôles spécialisés et autonomes',
+                  'Gouvernance unifiée & maîtrise des coûts',
+                  'Infrastructures logistiques & techniques de pointe',
                 ].map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <CheckCircle2 size={20} color="var(--color-orange-avira)" style={{ flexShrink: 0 }} />
-                    <span style={{ fontSize: '0.95rem', color: '#FFFFFF', fontWeight: 500 }}>{item}</span>
+                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <CheckCircle2 size={18} color="var(--color-orange-avira)" style={{ flexShrink: 0 }} />
+                    <span style={{ fontSize: '0.88rem', color: '#FFFFFF', fontWeight: 500 }}>{item}</span>
                   </div>
                 ))}
               </div>

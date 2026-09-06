@@ -91,13 +91,14 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
               onClick={onOpenQuote}
               className="btn btn-primary"
               style={{
-                fontSize: '0.85rem',
-                padding: '0.45rem 0.85rem',
-                minHeight: '38px',
-                borderRadius: 'var(--radius-md)',
+                fontSize: '0.82rem',
+                padding: '0.35rem 0.75rem',
+                minHeight: '34px',
+                borderRadius: 'var(--radius-sm)',
+                gap: '0.35rem',
               }}
             >
-              <FileText size={16} />
+              <FileText size={15} />
               <span className="hide-text-mobile">Demander un devis</span>
               <span className="visible-mobile" style={{ display: 'none' }}>Devis</span>
             </button>
