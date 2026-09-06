@@ -63,7 +63,7 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.75rem', marginLeft: 'auto', marginRight: '3rem' }}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
