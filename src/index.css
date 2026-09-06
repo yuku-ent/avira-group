@@ -113,7 +113,7 @@ button, input, select, textarea {
   justify-content: center;
   gap: 0.6rem;
   padding: 0.85rem 1.6rem;
-  min-height: 48px; /* High tactile area on mobile */
+  min-height: 48px;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1rem;
@@ -122,6 +122,15 @@ button, input, select, textarea {
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.6rem 1.1rem;
+    min-height: 40px;
+    font-size: 0.88rem;
+    gap: 0.45rem;
+  }
 }
 
 .btn-primary {

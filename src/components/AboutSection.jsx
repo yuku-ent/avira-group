@@ -33,8 +33,9 @@ export default function AboutSection({ onOpenQuote }) {
           {/* Visual Side / Card Showcase */}
           <div style={{ position: 'relative' }}>
             <div
+              className="about-blue-card"
               style={{
-                padding: '1.75rem 1.5rem',
+                padding: '2.5rem 2.25rem',
                 background: 'linear-gradient(145deg, #0038A9 0%, #001F60 100%)',
                 borderRadius: 'var(--radius-lg)',
                 color: '#FFFFFF',
@@ -150,6 +151,18 @@ export default function AboutSection({ onOpenQuote }) {
       </div>
 
       <style>{`
+        @media (max-width: 991px) {
+          .about-blue-card {
+            padding: 1.25rem 1rem !important;
+          }
+          .about-blue-card h3 {
+            font-size: 1.15rem !important;
+          }
+          .about-blue-card p {
+            font-size: 0.85rem !important;
+            margin-bottom: 0.85rem !important;
+          }
+        }
         @media (min-width: 992px) {
           .about-grid {
             grid-template-columns: 1fr 1fr !important;

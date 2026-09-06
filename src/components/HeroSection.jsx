@@ -169,10 +169,11 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
 
           {/* Action CTAs */}
           <div
+            className="hero-cta-group"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '1.25rem',
+              gap: '1rem',
               alignItems: 'center',
               marginBottom: '2.75rem',
             }}
@@ -181,9 +182,9 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
               onClick={onExplorePoles}
               className="btn btn-primary"
               style={{
-                fontSize: '1rem',
-                padding: '0.85rem 1.75rem',
-                minHeight: '48px',
+                fontSize: '0.95rem',
+                padding: '0.75rem 1.5rem',
+                minHeight: '44px',
               }}
             >
               <span>Explorer nos 6 pôles</span>
@@ -194,12 +195,12 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
               onClick={onOpenQuote}
               className="btn btn-outline-light"
               style={{
-                fontSize: '1rem',
-                padding: '0.85rem 1.75rem',
-                minHeight: '48px',
+                fontSize: '0.95rem',
+                padding: '0.75rem 1.5rem',
+                minHeight: '44px',
               }}
             >
-              <span>Demander un devis rapide</span>
+              <span>Demander un devis</span>
             </button>
           </div>
 
@@ -348,6 +349,19 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
       </div>
 
       <style>{`
+        @media (max-width: 576px) {
+          .hero-cta-group {
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 0.75rem !important;
+          }
+          .hero-cta-group .btn {
+            width: 100% !important;
+            padding: 0.6rem 1rem !important;
+            min-height: 40px !important;
+            font-size: 0.88rem !important;
+          }
+        }
         @media (min-width: 768px) {
           .hero-stats-grid {
             grid-template-columns: repeat(4, 1fr) !important;

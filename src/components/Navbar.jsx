@@ -86,19 +86,20 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           </nav>
 
           {/* Actions: Contact / Quote Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <button
               onClick={onOpenQuote}
-              className="btn btn-primary"
+              className="btn btn-primary nav-quote-btn"
               style={{
-                fontSize: '0.85rem',
-                padding: '0.45rem 1.1rem',
-                minHeight: '38px',
-                borderRadius: 'var(--radius-md)',
+                fontWeight: 600,
+                borderRadius: 'var(--radius-sm)',
+                boxShadow: 'var(--shadow-orange)',
+                gap: '0.35rem',
               }}
             >
-              <FileText size={16} />
-              <span>Demander un devis</span>
+              <FileText className="nav-quote-icon" size={15} />
+              <span className="quote-btn-text-desktop">Demander un devis</span>
+              <span className="quote-btn-text-mobile">Devis</span>
             </button>
 
             {/* Mobile Hamburger Toggle */}
@@ -175,10 +176,10 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
                 onOpenQuote();
               }}
               className="btn btn-primary"
-              style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '1.05rem' }}
+              style={{ width: '100%', justifyContent: 'center', minHeight: '46px', fontSize: '0.95rem', padding: '0.65rem 1rem' }}
             >
-              <FileText size={20} />
-              <span>Demander un devis personnalisé</span>
+              <FileText size={18} />
+              <span>Demander un devis</span>
             </button>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', alignItems: 'center' }}>
               <a
@@ -215,6 +216,18 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
       )}
 
       <style>{`
+        .nav-quote-btn {
+          font-size: 0.85rem;
+          padding: 0.45rem 1.15rem;
+          min-height: 38px;
+        }
+        .quote-btn-text-mobile {
+          display: none !important;
+        }
+        .quote-btn-text-desktop {
+          display: inline !important;
+        }
+
         @media (max-width: 991px) {
           .desktop-nav {
             display: none !important;
@@ -227,6 +240,27 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           }
           .visible-mobile {
             display: block !important;
+          }
+          .quote-btn-text-desktop {
+            display: none !important;
+          }
+          .quote-btn-text-mobile {
+            display: inline !important;
+          }
+          .nav-quote-btn {
+            padding: 0.28rem 0.6rem !important;
+            font-size: 0.75rem !important;
+            min-height: 30px !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(254, 97, 2, 0.25) !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .nav-quote-btn {
+            padding: 0.22rem 0.45rem !important;
+            font-size: 0.7rem !important;
+            min-height: 28px !important;
+            gap: 0.2rem !important;
           }
         }
         @media (min-width: 992px) {
