@@ -82,13 +82,12 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
           );
         })}
 
-        {/* Dark Gradient Overlay for Supreme Text Legibility */}
+        {/* Translucent Gradient Overlay for Clear Background Photos & High Text Contrast */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(135deg, rgba(3, 14, 40, 0.88) 0%, rgba(0, 31, 96, 0.82) 50%, rgba(5, 13, 36, 0.92) 100%)',
-            backdropFilter: 'blur(2px)',
+            background: 'linear-gradient(135deg, rgba(4, 18, 53, 0.55) 0%, rgba(0, 31, 96, 0.42) 50%, rgba(4, 18, 53, 0.68) 100%)',
             zIndex: 2,
           }}
         />
@@ -204,74 +203,32 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             </button>
           </div>
 
-          {/* Diaporama Controls & Indicators */}
+          {/* Diaporama Indicators */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1rem',
+              gap: '0.4rem',
               marginBottom: '2rem',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              {slides.map((s, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  style={{
-                    width: idx === currentSlide ? '26px' : '8px',
-                    height: '8px',
-                    borderRadius: 'var(--radius-full)',
-                    backgroundColor: idx === currentSlide ? 'var(--color-orange-avira)' : 'rgba(255, 255, 255, 0.35)',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                  }}
-                />
-              ))}
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            {slides.map((s, idx) => (
               <button
-                onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
-                aria-label="Previous Slide"
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
                 style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  color: '#FFFFFF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  width: idx === currentSlide ? '28px' : '8px',
+                  height: '8px',
+                  borderRadius: 'var(--radius-full)',
+                  backgroundColor: idx === currentSlide ? 'var(--color-orange-avira)' : 'rgba(255, 255, 255, 0.45)',
+                  border: 'none',
                   cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
                 }}
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-                aria-label="Next Slide"
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  color: '#FFFFFF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                }}
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
+              />
+            ))}
           </div>
         </div>
 
