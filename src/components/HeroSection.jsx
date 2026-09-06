@@ -157,9 +157,9 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             style={{
               fontSize: 'clamp(0.98rem, 1.8vw, 1.15rem)',
               color: 'rgba(255, 255, 255, 0.88)',
-              lineHeight: 1.6,
+              lineHeight: 1.65,
               maxWidth: '720px',
-              marginBottom: '1.75rem',
+              marginBottom: '2.75rem',
               fontWeight: 400,
             }}
           >
@@ -172,9 +172,9 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '1rem',
+              gap: '1.25rem',
               alignItems: 'center',
-              marginBottom: '2rem',
+              marginBottom: '2.75rem',
             }}
           >
             <button
