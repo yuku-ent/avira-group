@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   ArrowLeft,
-  CheckCircle2,
   FileText,
   PhoneCall,
   ShieldCheck,
@@ -12,9 +11,8 @@ import {
   ChevronDown,
   Wrench,
   Layers,
-  Clock,
   HelpCircle,
-  BarChart3
+  Check
 } from 'lucide-react';
 
 export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
@@ -33,66 +31,131 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  // Custom CTA content per pole
-  const getCtaContent = (poleId) => {
+  // Detailed editorial descriptions per pole for richer text content
+  const getDetailedEditorialText = (poleId) => {
     switch (poleId) {
       case 'audiovisuel':
         return {
-          badge: 'Ingénierie Audiovisuelle & Événementielle',
-          title: 'Un projet de captation, vidéo corporate ou direct 4K ?',
-          subtitle: 'Nos techniciens et réalisateurs conçoivent votre production audiovisuelle sur-mesure avec matériel de pointe.',
-          buttonText: 'Obtenir une cotation audiovisuelle',
+          intro: "Notre Pôle Audiovisuel conçoit et réalise des productions vidéo à forte valeur ajoutée visuelle et narrative. Nous combinons des équipements de captation 4K/6K de niveau cinématographique, des régies mobiles nomades et des studios spécialisés pour répondre à l'ensemble des besoins de communication des entreprises, institutions et médias.",
+          details: "Nos équipes de réalisation et techniciens expérimentés maîtrisent l'intégralité de la chaîne de production : du cadrage stratégique au storyboarding, de la prise de vue multi-caméras au streaming en direct sécurisé, jusqu'à la post-production avancée (étalonnage couleur DaVinci Resolve, motion design 2D/3D et mixage audio professionnel Dante).",
+          commitments: [
+            "Équipements cinématographiques 4K/6K et régies autonomes",
+            "Télépilotes de drone certifiés DGAC pour prises de vue aériennes",
+            "Multi-restreaming en direct haute définition vers plateformes et web"
+          ]
         };
       case 'btp':
         return {
-          badge: 'Gros Œuvre & Promotion Immobilière',
-          title: 'Une étude de chantier, rénovation ou construction BTP ?',
-          subtitle: 'Nos ingénieurs et conducteurs de travaux étudient vos plans et garantissent le respect des normes HQE et délais.',
-          buttonText: 'Demander une étude technique BTP',
+          intro: "Le Pôle BTP & Immobilier rassemble l'ensemble des compétences d'ingénierie structurelle, de gros œuvre, de génie civil et de gérance immobilière indispensables au succès des projets de construction et de réhabilitation d'envergure.",
+          details: "Qu'il s'agisse d'édifier des complexes tertiaires, des bâtiments industriels ou d'effectuer la rénovation énergétique globale de parcs immobiliers, nos conducteurs de travaux et ingénieurs métreurs veillent au respect strict des normes environnementales (RE2020, label HQE) et au contrôle rigoureux des délais. Grâce à la modélisation BIM 3D, nous assurons une gestion fluide et transparente à chaque étape du chantier.",
+          commitments: [
+            "Garantie décennale et biennale sur l'ensemble des corps d'état",
+            "Maîtrise d'œuvre intégrée de la phase terrassement à la livraison finale",
+            "Conception et suivi de projet sur maquette numérique BIM 3D"
+          ]
         };
       case 'impression':
         return {
-          badge: 'Impression Grand Format & Covering',
-          title: 'Un besoin en signalétique, bâches ou habillage de flotte ?',
-          subtitle: 'Bénéficiez de notre atelier de façonnage numérique haute définition et d\'un contrôle qualité rigoureux.',
-          buttonText: 'Demander un devis Impression',
+          intro: "Spécialisé dans la fabrication sur-mesure de supports de communication visuelle grand format et de signalétique d'entreprise, le Pôle Impression Numérique dispose d'un atelier hautement équipé en traceurs UV et encres écologiques Latex.",
+          details: "De la vérification technique de vos fichiers graphiques jusqu'au façonnage de précision (découpe numérique Zünd, lamination anti-UV, pose d'œillets) et à l'installation sur site par nos équipes de poseurs qualifiés et cordistes certifiés, nous vous garantissons une restitution colorimétrique irréprochable et une résistance optimale aux intempéries.",
+          commitments: [
+            "Encres écologiques 100% certifiées Greenguard Gold sans solvants",
+            "Impression haute précision sur supports souples et matériaux rigides",
+            "Service de tirage et de pose express sous 24h pour les urgences"
+          ]
         };
       case 'vehicules':
         return {
-          badge: 'Gestion de Flotte & Location LLD / LCD',
-          title: 'Besoin de véhicules utilitaires, berlines ou engins de chantier ?',
-          subtitle: 'Bénéficiez de contrats de location flexibles avec maintenance préventive et véhicule de remplacement 24/7.',
-          buttonText: 'Réserver une flotte ou devis LLD',
+          intro: "Pour garantir la mobilité et l'efficacité opérationnelle des entreprises et professionnels, notre Pôle Location & Vente de Véhicules met à disposition un parc récent, entretenu et modulable selon vos exigences d'activité.",
+          details: "Nous proposons des formules souples de Location Longue Durée (LLD) ou Court Terme (LCD) adaptées à tous les profils : véhicules utilitaires légers, berlines de fonction, camions bennes et engins de chantier spécialisés (nacelles, mini-pelles). L'ensemble de notre flotte est équipé de systèmes de géolocalisation et télégestion et bénéficie d'une assistance 24/7 avec véhicule de remplacement livré en moins de 2 heures.",
+          commitments: [
+            "Contrats de location flexibles LLD/LCD avec entretien et assurance inclus",
+            "Véhicule de remplacement équivalent livré sous 2 heures en cas d'aléa",
+            "Options de personnalisation et flottaison adhésive en interne"
+          ]
         };
       case 'logistique':
         return {
-          badge: 'Transport Routier & Entreposage Sécurisé',
-          title: 'Un acheminement de marchandises ou prestation logistique ?',
-          subtitle: 'Sécurisez votre chaîne d\'approvisionnement avec notre flotte décarbonée et suivi GPS en temps réel.',
-          buttonText: 'Calculer un devis Transport & Fret',
+          intro: "Le Pôle Transport & Logistique orchestre l'acheminement et la gestion globale des flux de marchandises à l'échelle nationale et internationale avec une traçabilité totale.",
+          details: "S'appuyant sur des plateformes logistiques sécurisées et une flotte routière normée Euro 6 et décarbonée, nous assurons le transport de fret routier en lots complets ou partiels, le transport frigorifique sous température contrôlée (-20°C à +20°C), l'entreposage sous-douane et la préparation de commandes e-commerce. Notre portail connecté TMS/WMS garantit un suivi GPS en temps réel.",
+          commitments: [
+            "Suivi GPS et sonde de température en temps réel accessible via portail client",
+            "Plateformes de stockage 10 000m² sécurisées sous gardiennage 24/7",
+            "Flotte de véhicules engagée dans la réduction des émissions de CO2"
+          ]
         };
       case 'express':
         return {
-          badge: 'Urgence Absolue & Course Dédiée 24/7',
-          title: 'Un pli confidentiel, colis urgent ou besoin de livraison H+1 ?',
-          subtitle: 'Nos coursiers dédiés et véhicules express interviennent en moins de 30 minutes avec géolocalisation GPS en direct.',
-          buttonText: 'Commander une livraison express',
+          intro: "Conçu pour répondre aux impératifs d'immédiateté et d'urgence absolue, le Pôle Livraison Express déploie des coursiers dédiés et des véhicules ultra-réactifs sur simple demande 24h/24 et 7j/7.",
+          details: "Nous prenons en charge l'enlèvement en moins de 30 minutes de vos plis confidentiels, colis prioritaires, pièces détachées stratégiques et livraisons urbaines dernier kilomètre. Sans rupture de charge ni transit intermédiaire en centre de tri, votre expédition est acheminée en liaison directe avec preuve de livraison électronique immédiate.",
+          commitments: [
+            "Intervention et enlèvement garanti en moins de 30 minutes",
+            "Liaison directe point à point sans intermédiaire pour une rapidité maximale",
+            "Géolocalisation GPS en direct et confirmation de réception immédiate"
+          ]
         };
       default:
         return {
-          badge: 'Expertise Sectorielle AVIRA',
-          title: 'Besoin d\'une étude ou d\'un devis personnalisé ?',
-          subtitle: 'Un chargé d\'affaires dédié étudie vos besoins et vous répond sous 24h ouvrées.',
-          buttonText: 'Demander mon devis personnalisé',
+          intro: pole.fullDescription,
+          details: pole.description,
+          commitments: pole.highlights
         };
     }
   };
 
+  const getCtaContent = (poleId) => {
+    switch (poleId) {
+      case 'audiovisuel':
+        return {
+          title: 'Un projet de captation, vidéo corporate ou direct 4K ?',
+          subtitle: 'Nos techniciens et réalisateurs conçoivent votre production audiovisuelle sur-mesure.',
+          buttonText: 'Obtenir un devis Audiovisuel',
+        };
+      case 'btp':
+        return {
+          title: 'Une étude de chantier, rénovation ou construction BTP ?',
+          subtitle: 'Nos ingénieurs et conducteurs de travaux étudient vos plans et chiffrages.',
+          buttonText: 'Demander une étude BTP',
+        };
+      case 'impression':
+        return {
+          title: 'Un besoin en signalétique, bâches ou habillage de flotte ?',
+          subtitle: 'Obtenez une cotation personnalisée par notre atelier d\'impression haute définition.',
+          buttonText: 'Demander un devis Impression',
+        };
+      case 'vehicules':
+        return {
+          title: 'Besoin de véhicules utilitaires, berlines ou engins de chantier ?',
+          subtitle: 'Bénéficiez de contrats de location flexibles LLD / LCD avec assistance 24/7.',
+          buttonText: 'Consulter l\'offre Flotte & LLD',
+        };
+      case 'logistique':
+        return {
+          title: 'Un acheminement de marchandises ou prestation logistique ?',
+          subtitle: 'Sécurisez votre chaîne d\'approvisionnement avec notre flotte et suivi GPS.',
+          buttonText: 'Calculer un devis Transport',
+        };
+      case 'express':
+        return {
+          title: 'Un pli confidentiel, colis urgent ou livraison H+1 ?',
+          subtitle: 'Nos coursiers dédiés interviennent en moins de 30 minutes avec suivi GPS.',
+          buttonText: 'Commander une livraison express',
+        };
+      default:
+        return {
+          title: 'Besoin d\'une étude ou d\'un devis personnalisé ?',
+          subtitle: 'Un chargé d\'affaires dédié vous répond sous 24h ouvrées.',
+          buttonText: 'Demander mon devis',
+        };
+    }
+  };
+
+  const editorial = getDetailedEditorialText(pole.id);
   const cta = getCtaContent(pole.id);
 
   return (
     <div style={{ backgroundColor: 'var(--color-bg-light)', minHeight: '100vh', paddingTop: '5rem', paddingBottom: '5rem' }}>
-      {/* Sticky Navigation Sub-Bar */}
+      {/* Navigation Sub-Bar */}
       <div
         style={{
           backgroundColor: '#FFFFFF',
@@ -101,7 +164,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           position: 'sticky',
           top: '60px',
           zIndex: 100,
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.03)',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
@@ -116,7 +179,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
             }}
           >
             <ArrowLeft size={16} />
-            <span>Retour aux 6 services</span>
+            <span>Retour à la liste des services</span>
           </button>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem', fontFamily: 'var(--font-heading)', color: 'var(--color-text-muted)' }}>
@@ -129,9 +192,8 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
         </div>
       </div>
 
-      {/* Main Structured Page Content */}
-      <div className="container" style={{ marginTop: '2rem' }}>
-        {/* Pôle Hero Banner with Background Image Overlay */}
+      <div className="container" style={{ marginTop: '2.5rem' }}>
+        {/* Editorial Hero Banner */}
         <div
           style={{
             position: 'relative',
@@ -139,12 +201,11 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
             overflow: 'hidden',
             boxShadow: 'var(--shadow-lg)',
             marginBottom: '3rem',
-            minHeight: '420px',
+            minHeight: '380px',
             display: 'flex',
             alignItems: 'center',
           }}
         >
-          {/* Background Image */}
           {pole.image && (
             <img
               src={pole.image}
@@ -159,80 +220,42 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
             />
           )}
 
-          {/* Dark Gradient Overlay for Maximum Readability */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
-              background: `linear-gradient(135deg, rgba(0, 24, 75, 0.92) 0%, rgba(0, 31, 96, 0.85) 60%, ${pole.color}D9 100%)`,
-            }}
-          />
-          {/* Subtle Background Pattern */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '-20%',
-              right: '-10%',
-              width: '450px',
-              height: '450px',
-              background: 'rgba(255, 255, 255, 0.06)',
-              clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-              transform: 'rotate(25deg)',
-              pointerEvents: 'none',
+              background: `linear-gradient(135deg, rgba(0, 24, 75, 0.94) 0%, rgba(0, 31, 96, 0.88) 60%, ${pole.color}CC 100%)`,
             }}
           />
 
-          <div style={{ position: 'relative', zIndex: 10, maxWidth: '900px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 1rem', backgroundColor: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(8px)', borderRadius: 'var(--radius-full)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '1.25rem' }}>
-              <Icon size={16} />
-              <span>{cta.badge}</span>
-            </div>
+          <div style={{ position: 'relative', zIndex: 10, padding: 'clamp(2rem, 5vw, 3.5rem)', maxWidth: '900px', color: '#FFFFFF' }}>
+            <span
+              style={{
+                display: 'inline-block',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                color: 'var(--color-orange-avira)',
+                marginBottom: '0.75rem',
+              }}
+            >
+              Domaine d'Excellence • AVIRA GROUP
+            </span>
 
             <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontWeight: 800, color: '#FFFFFF', lineHeight: 1.15, marginBottom: '1rem' }}>
               Pôle {pole.title}
             </h1>
 
-            <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', color: 'rgba(255, 255, 255, 0.95)', fontWeight: 500, lineHeight: 1.5, marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.25rem)', color: 'rgba(255, 255, 255, 0.95)', fontWeight: 500, lineHeight: 1.5, marginBottom: '2rem', maxWidth: '800px' }}>
               {pole.subtitle}
             </p>
-
-            <p style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 0.88)', lineHeight: 1.75, maxWidth: '800px', marginBottom: '2.5rem' }}>
-              {pole.fullDescription}
-            </p>
-
-            {/* Pôle Key Metrics Bar */}
-            {pole.stats && (
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-                  gap: '1.25rem',
-                  padding: '1.5rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(12px)',
-                  borderRadius: 'var(--radius-md)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  marginBottom: '2.5rem',
-                }}
-              >
-                {pole.stats.map((stat, i) => (
-                  <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--color-orange-avira)' }}>
-                      {stat.value}
-                    </span>
-                    <span style={{ fontSize: '0.82rem', color: 'rgba(255, 255, 255, 0.85)', fontWeight: 500 }}>
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               <button
                 onClick={() => onSelectPoleForQuote(pole.id)}
                 className="btn btn-primary"
-                style={{ fontSize: '1rem', padding: '0.85rem 1.75rem', minHeight: '48px' }}
+                style={{ fontSize: '0.98rem', padding: '0.8rem 1.6rem', minHeight: '46px' }}
               >
                 <FileText size={18} />
                 <span>{cta.buttonText}</span>
@@ -241,85 +264,106 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
               <a
                 href="tel:+221784354817"
                 className="btn btn-outline-light"
-                style={{ fontSize: '1rem', padding: '0.85rem 1.75rem', minHeight: '48px' }}
+                style={{ fontSize: '0.98rem', padding: '0.8rem 1.6rem', minHeight: '46px' }}
               >
                 <PhoneCall size={18} />
-                <span>Parler à un chargé d'affaires</span>
+                <span>Contacter le pôle</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Section 1: Prestations & Domaines d'Intervention (Comprehensive Grid) */}
-        <div style={{ marginBottom: '4rem' }}>
-          <div style={{ marginBottom: '2rem' }}>
-            <span className="section-tag">
-              <Zap size={16} />
-              <span>Domaines de Compétences</span>
+        {/* SECTION 1: Presentation Edito & Explications Détaillées (Rich Text, Clean Layout, No Pill Clutter) */}
+        <div
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderRadius: 'var(--radius-lg)',
+            padding: 'clamp(2rem, 4vw, 3.5rem)',
+            border: '1px solid var(--color-border)',
+            boxShadow: 'var(--shadow-sm)',
+            marginBottom: '3rem',
+          }}
+        >
+          <div style={{ maxWidth: '900px' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--color-orange-avira)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.5rem' }}>
+              Présentation & Vision Générale
             </span>
-            <h2 className="section-title" style={{ fontSize: '2rem' }}>
-              Nos Prestations & Solutions <span className="text-avira-orange">Sur-Mesure</span>
+            <h2 style={{ fontSize: '2rem', color: 'var(--color-blue-dark)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.25 }}>
+              L'Expertise du Pôle {pole.title} en Détail
             </h2>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', maxWidth: '700px' }}>
-              Découvrez la diversité et la précision des prestations délivrées par nos équipes spécialisées du pôle {pole.title}.
+
+            <p style={{ fontSize: '1.1rem', color: 'var(--color-text-main)', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 400 }}>
+              {editorial.intro}
             </p>
+
+            <p style={{ fontSize: '1.02rem', color: 'var(--color-text-muted)', lineHeight: 1.8, marginBottom: '2.5rem' }}>
+              {editorial.details}
+            </p>
+
+            {/* Key Editorial Commitments */}
+            <div style={{ backgroundColor: 'var(--color-bg-light)', borderRadius: 'var(--radius-md)', padding: '1.75rem', borderLeft: '4px solid var(--color-blue-avira)' }}>
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--color-blue-dark)', fontWeight: 700, marginBottom: '1rem' }}>
+                Garanties et Principes Directeurs
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                {editorial.commitments.map((c, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                    <Check size={18} color="var(--color-orange-avira)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                    <span style={{ fontSize: '0.98rem', color: 'var(--color-text-main)', lineHeight: 1.5, fontWeight: 500 }}>
+                      {c}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 2: Les Prestations du Pôle (Clean Editorial List - No Repetitive Badge Clutter) */}
+        <div style={{ marginBottom: '3rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--color-orange-avira)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.4rem' }}>
+              Nos Prestations
+            </span>
+            <h2 style={{ fontSize: '1.85rem', color: 'var(--color-blue-dark)', fontWeight: 800 }}>
+              Périmètre d'Intervention & Solutions
+            </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
             {pole.services.map((service, index) => (
               <div
                 key={index}
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: '1.75rem',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '2rem',
                   border: '1px solid var(--color-border)',
-                  borderTop: `4px solid ${pole.color}`,
                   boxShadow: 'var(--shadow-sm)',
-                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
+                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.borderColor = 'var(--color-blue-avira)';
                   e.currentTarget.style.boxShadow = 'var(--shadow-md)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = 'var(--color-border)';
                   e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                 }}
               >
                 <div>
-                  <div
-                    style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: 'var(--radius-md)',
-                      backgroundColor: 'rgba(0, 56, 169, 0.08)',
-                      color: 'var(--color-blue-avira)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '1.25rem',
-                    }}
-                  >
-                    <CheckCircle2 size={24} color="var(--color-orange-avira)" />
-                  </div>
-
-                  <h3 style={{ fontSize: '1.25rem', color: 'var(--color-blue-dark)', marginBottom: '0.6rem', fontFamily: 'var(--font-heading)' }}>
+                  <h3 style={{ fontSize: '1.25rem', color: 'var(--color-blue-dark)', fontWeight: 700, marginBottom: '0.75rem', lineHeight: 1.35 }}>
                     {service.name}
                   </h3>
-
-                  <p style={{ fontSize: '0.94rem', color: 'var(--color-text-muted)', lineHeight: 1.65 }}>
+                  <p style={{ fontSize: '0.96rem', color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
                     {service.desc}
                   </p>
                 </div>
 
-                <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '0.82rem', color: 'var(--color-blue-avira)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Service Certifié AVIRA
-                  </span>
+                <div style={{ marginTop: '1.75rem', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'flex-end' }}>
                   <button
                     onClick={() => onSelectPoleForQuote(pole.id)}
                     style={{
@@ -332,9 +376,10 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.3rem',
+                      padding: 0,
                     }}
                   >
-                    <span>Devis</span>
+                    <span>Demander une étude</span>
                     <ChevronRight size={16} />
                   </button>
                 </div>
@@ -343,7 +388,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           </div>
         </div>
 
-        {/* Section 2: Parc Équipement & Moyens Techniques */}
+        {/* SECTION 3: Parc Matériel & Moyens Techniques (Clean Typography List) */}
         {pole.equipment && (
           <div
             style={{
@@ -352,50 +397,31 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
               padding: '2.5rem',
               border: '1px solid var(--color-border)',
               boxShadow: 'var(--shadow-sm)',
-              marginBottom: '4rem',
+              marginBottom: '3rem',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.75rem' }}>
-              <div
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: 'var(--radius-md)',
-                  backgroundColor: 'var(--color-blue-light)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--color-blue-avira)',
-                }}
-              >
-                <Wrench size={26} />
-              </div>
-              <div>
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--color-blue-dark)', margin: 0, fontFamily: 'var(--font-heading)' }}>
-                  Parc Matériel & Moyens Techniques du Pôle
-                </h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', margin: 0 }}>
-                  Déploiement d'équipements de pointe récents et révisés pour une exécution sans faille.
-                </p>
-              </div>
-            </div>
+            <h3 style={{ fontSize: '1.35rem', color: 'var(--color-blue-dark)', fontWeight: 800, marginBottom: '0.5rem' }}>
+              Moyens Techniques & Équipements
+            </h3>
+            <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem' }}>
+              Des ressources matérielles de pointe régulièrement révisées et renouvelées.
+            </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
               {pole.equipment.map((eq, i) => (
                 <div
                   key={i}
                   style={{
                     display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.85rem',
-                    padding: '1rem 1.25rem',
+                    alignItems: 'flex-start',
+                    gap: '0.75rem',
+                    padding: '0.85rem 1rem',
                     backgroundColor: 'var(--color-bg-light)',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--color-border)',
+                    borderRadius: 'var(--radius-sm)',
+                    borderLeft: '3px solid var(--color-blue-avira)',
                   }}
                 >
-                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-orange-avira)', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.94rem', color: 'var(--color-text-main)', fontWeight: 500 }}>
+                  <span style={{ fontSize: '0.94rem', color: 'var(--color-text-main)', lineHeight: 1.5, fontWeight: 500 }}>
                     {eq}
                   </span>
                 </div>
@@ -404,54 +430,37 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           </div>
         )}
 
-        {/* Section 3: Notre Processus d'Intervention en 4 Étapes */}
+        {/* SECTION 4: Méthodologie en 4 Étapes */}
         {pole.methodology && (
-          <div style={{ marginBottom: '4rem' }}>
-            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-              <span className="section-tag">
-                <Layers size={16} />
-                <span>Méthodologie Opérationnelle</span>
+          <div style={{ marginBottom: '3rem' }}>
+            <div style={{ marginBottom: '2rem' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--color-orange-avira)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.4rem' }}>
+                Organisation & Déroulement
               </span>
-              <h2 className="section-title">
-                Notre Processus d'Intervention en <span className="text-avira-orange">4 Étapes</span>
+              <h2 style={{ fontSize: '1.85rem', color: 'var(--color-blue-dark)', fontWeight: 800 }}>
+                Le Processus en 4 Étapes
               </h2>
-              <p className="section-subtitle" style={{ margin: '0 auto' }}>
-                Un déroulement rigoureux garantissant la maîtrise des coûts, la sécurité et le respect des délais.
-              </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1.25rem' }}>
               {pole.methodology.map((m, idx) => (
                 <div
                   key={idx}
                   style={{
                     backgroundColor: '#FFFFFF',
-                    borderRadius: 'var(--radius-lg)',
-                    padding: '2rem 1.5rem',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '1.75rem',
                     border: '1px solid var(--color-border)',
                     boxShadow: 'var(--shadow-sm)',
-                    position: 'relative',
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '2.2rem',
-                      fontWeight: 800,
-                      color: 'rgba(0, 56, 169, 0.12)',
-                      position: 'absolute',
-                      top: '1rem',
-                      right: '1.25rem',
-                    }}
-                  >
+                  <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-orange-avira)', fontFamily: 'var(--font-mono)', marginBottom: '0.75rem' }}>
                     {m.step}
-                  </span>
-
-                  <h3 style={{ fontSize: '1.15rem', color: 'var(--color-blue-dark)', marginBottom: '0.6rem', fontFamily: 'var(--font-heading)' }}>
+                  </div>
+                  <h3 style={{ fontSize: '1.1rem', color: 'var(--color-blue-dark)', fontWeight: 700, marginBottom: '0.5rem' }}>
                     {m.title}
                   </h3>
-
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: 1.65 }}>
                     {m.desc}
                   </p>
                 </div>
@@ -460,79 +469,14 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           </div>
         )}
 
-        {/* Section 4: Engagements de Service & Garanties */}
-        <div
-          style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: 'var(--radius-lg)',
-            padding: '2.5rem',
-            border: '1px solid var(--color-border)',
-            boxShadow: 'var(--shadow-sm)',
-            marginBottom: '4rem',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.75rem' }}>
-            <div
-              style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: 'var(--radius-md)',
-                backgroundColor: 'var(--color-blue-light)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--color-blue-avira)',
-              }}
-            >
-              <Award size={26} />
-            </div>
-            <div>
-              <h3 style={{ fontSize: '1.4rem', color: 'var(--color-blue-dark)', margin: 0, fontFamily: 'var(--font-heading)' }}>
-                Engagements de Qualité Pôle {pole.title}
-              </h3>
-              <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', margin: 0 }}>
-                Certifications, sécurité au travail et rigueur contractuelle.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
-            {pole.highlights.map((highlight, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '0.85rem',
-                  padding: '1.1rem 1.25rem',
-                  backgroundColor: 'var(--color-bg-light)',
-                  borderRadius: 'var(--radius-md)',
-                  borderLeft: '4px solid var(--color-orange-avira)',
-                }}
-              >
-                <ShieldCheck size={20} color="var(--color-blue-avira)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '0.95rem', color: 'var(--color-text-main)', fontWeight: 500, lineHeight: 1.5 }}>
-                  {highlight}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Section 5: Foire Aux Questions (FAQ Dédiée par Pôle) */}
+        {/* SECTION 5: FAQ Clean Accordion */}
         {pole.faq && (
-          <div style={{ marginBottom: '4rem' }}>
-            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-              <span className="section-tag">
-                <HelpCircle size={16} />
-                <span>Foire Aux Questions</span>
-              </span>
-              <h2 className="section-title">
-                Questions Fréquentes — <span className="text-avira-orange">Pôle {pole.title}</span>
-              </h2>
-            </div>
+          <div style={{ marginBottom: '3.5rem' }}>
+            <h2 style={{ fontSize: '1.6rem', color: 'var(--color-blue-dark)', fontWeight: 800, marginBottom: '1.5rem' }}>
+              Questions Fréquentes sur le Pôle {pole.title}
+            </h2>
 
-            <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {pole.faq.map((item, idx) => {
                 const isOpen = openFaqIndex === idx;
                 return (
@@ -543,14 +487,13 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
                       borderRadius: 'var(--radius-md)',
                       border: '1px solid var(--color-border)',
                       overflow: 'hidden',
-                      transition: 'all 0.2s ease',
                     }}
                   >
                     <button
                       onClick={() => toggleFaq(idx)}
                       style={{
                         width: '100%',
-                        padding: '1.25rem 1.5rem',
+                        padding: '1.15rem 1.5rem',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
@@ -560,11 +503,11 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
                         textAlign: 'left',
                       }}
                     >
-                      <strong style={{ fontSize: '1.05rem', color: 'var(--color-blue-dark)', fontFamily: 'var(--font-heading)' }}>
+                      <strong style={{ fontSize: '1.02rem', color: 'var(--color-blue-dark)', fontFamily: 'var(--font-heading)' }}>
                         {item.q}
                       </strong>
                       <ChevronDown
-                        size={20}
+                        size={18}
                         color="var(--color-orange-avira)"
                         style={{
                           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -580,9 +523,9 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
                         style={{
                           padding: '0 1.5rem 1.25rem 1.5rem',
                           color: 'var(--color-text-muted)',
-                          fontSize: '0.96rem',
-                          lineHeight: 1.65,
-                          borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+                          fontSize: '0.95rem',
+                          lineHeight: 1.7,
+                          borderTop: '1px solid rgba(0,0,0,0.05)',
                           paddingTop: '1rem',
                         }}
                       >
@@ -596,43 +539,23 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
           </div>
         )}
 
-        {/* Section 6: Custom Dedicated CTA Block for this Pole */}
+        {/* SECTION 6: Simple & Clean CTA */}
         <div
           style={{
             background: 'linear-gradient(135deg, #00287A 0%, #0038A9 100%)',
             borderRadius: 'var(--radius-lg)',
-            padding: '3.5rem 2.5rem',
+            padding: '3rem 2rem',
             color: '#FFFFFF',
             textAlign: 'center',
-            boxShadow: 'var(--shadow-lg)',
-            position: 'relative',
-            overflow: 'hidden',
+            boxShadow: 'var(--shadow-md)',
           }}
         >
-          <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.35rem 0.9rem',
-                backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                borderRadius: 'var(--radius-full)',
-                fontSize: '0.85rem',
-                fontWeight: 600,
-                color: 'var(--color-orange-avira)',
-                marginBottom: '1.25rem',
-              }}
-            >
-              <Sparkles size={16} />
-              <span>Devis Sur-Mesure Pôle {pole.title}</span>
-            </span>
-
-            <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#FFFFFF', fontWeight: 800, marginBottom: '1rem' }}>
+          <div style={{ maxWidth: '750px', margin: '0 auto' }}>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#FFFFFF', fontWeight: 800, marginBottom: '0.75rem' }}>
               {cta.title}
             </h2>
 
-            <p style={{ fontSize: '1.05rem', color: 'rgba(255, 255, 255, 0.88)', lineHeight: 1.65, marginBottom: '2.5rem' }}>
+            <p style={{ fontSize: '1.02rem', color: 'rgba(255, 255, 255, 0.9)', lineHeight: 1.6, marginBottom: '2rem' }}>
               {cta.subtitle}
             </p>
 
@@ -640,18 +563,18 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
               <button
                 onClick={() => onSelectPoleForQuote(pole.id)}
                 className="btn btn-primary"
-                style={{ fontSize: '1.05rem', padding: '0.95rem 2rem', minHeight: '52px' }}
+                style={{ fontSize: '1rem', padding: '0.85rem 1.8rem', minHeight: '48px' }}
               >
-                <FileText size={20} />
+                <FileText size={18} />
                 <span>{cta.buttonText}</span>
               </button>
 
               <button
                 onClick={onBack}
                 className="btn btn-outline-light"
-                style={{ fontSize: '1.05rem', padding: '0.95rem 2rem', minHeight: '52px' }}
+                style={{ fontSize: '1rem', padding: '0.85rem 1.8rem', minHeight: '48px' }}
               >
-                <span>Découvrir les autres pôles</span>
+                <span>Retour aux services</span>
               </button>
             </div>
           </div>
