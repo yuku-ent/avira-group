@@ -224,8 +224,8 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
                   <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--color-blue-dark)', fontFamily: 'var(--font-heading)' }}>
                     Courriel Général
                   </strong>
-                  <a href="mailto:aviragroup78@gmail.com" style={{ fontSize: '0.95rem', color: 'var(--color-blue-avira)', fontWeight: 600 }}>
-                    aviragroup78@gmail.com
+                  <a href="mailto:aviragroupe78@gmail.com" style={{ fontSize: '0.95rem', color: 'var(--color-blue-avira)', fontWeight: 600 }}>
+                    aviragroupe78@gmail.com
                   </a>
                 </div>
               </div>
