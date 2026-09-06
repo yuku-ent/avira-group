@@ -12,39 +12,38 @@ export default function Footer({ onOpenQuote }) {
       style={{
         backgroundColor: '#030E28',
         color: '#FFFFFF',
-        paddingTop: '4.5rem',
-        paddingBottom: '2.5rem',
+        paddingTop: '3rem',
+        paddingBottom: '2.0rem',
         borderTop: '1px solid rgba(255, 255, 255, 0.08)',
         position: 'relative',
       }}
     >
       <div className="container">
-        {/* Top Footer Row */}
+        {/* Top Footer Row (3 Compact Columns) */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '2rem',
-            paddingBottom: '3.5rem',
+            paddingBottom: '2rem',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
           }}
         >
           {/* Col 1: Brand Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <Logo variant="white" size="large" />
-            <p style={{ fontSize: '0.92rem', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.65, maxWidth: '320px' }}>
-              AVIRA GROUP est un acteur économique majeur fédérant 6 pôles d'excellence indépendants :
-              Audiovisuel, BTP & Immobilier, Impression Numérique, Location de Véhicules, Logistique et Livraison Express.
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <Logo variant="white" size="medium" />
+            <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.6, maxWidth: '340px' }}>
+              AVIRA GROUP orchestre 6 pôles d'excellence indépendants et complémentaires pour concrétiser tous vos projets.
             </p>
-            <div style={{ display: 'flex', gap: '0.85rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem' }}>
               {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
                   aria-label="Social Link"
                   style={{
-                    width: '38px',
-                    height: '38px',
+                    width: '36px',
+                    height: '36px',
                     borderRadius: '50%',
                     backgroundColor: 'rgba(255, 255, 255, 0.08)',
                     display: 'flex',
@@ -62,70 +61,29 @@ export default function Footer({ onOpenQuote }) {
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
-                  <Icon size={18} />
+                  <Icon size={17} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Col 2: Nos 6 Pôles */}
+          {/* Col 2: Navigation Institutionnelle */}
           <div>
-            <h4
-              style={{
-                fontSize: '1.1rem',
-                fontFamily: 'var(--font-heading)',
-                color: '#FFFFFF',
-                marginBottom: '1.25rem',
-                position: 'relative',
-              }}
-            >
-              Nos 6 Pôles Métiers
+            <h4 style={{ fontSize: '1rem', fontFamily: 'var(--font-heading)', color: '#FFFFFF', marginBottom: '1rem' }}>
+              Groupe & Navigation
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {[
-                { name: '🎥 Pôle Audiovisuel', href: '#poles' },
-                { name: '🏗️ Pôle BTP & Immobilier', href: '#poles' },
-                { name: '🖨️ Pôle Impression Numérique', href: '#poles' },
-                { name: '🚗 Location & Vente Véhicules', href: '#poles' },
-                { name: '🚛 Transport & Logistique', href: '#poles' },
-                { name: '🚀 Pôle Livraison Express', href: '#poles' },
-              ].map((item, idx) => (
-                <li key={idx}>
-                  <a
-                    href={item.href}
-                    style={{
-                      fontSize: '0.92rem',
-                      color: 'rgba(255, 255, 255, 0.75)',
-                      transition: 'color 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-orange-avira)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255, 255, 255, 0.75)')}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3: Navigation Institutionnelle */}
-          <div>
-            <h4 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-heading)', color: '#FFFFFF', marginBottom: '1.25rem' }}>
-              Groupe & Informations
-            </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {[
+                { name: 'Nos 6 Pôles d\'Activité', href: '#poles' },
                 { name: 'À Propos du Groupe', href: '#about' },
-                { name: 'Chiffres Clés & Impact', href: '#stats' },
-                { name: 'Engagements Qualité & RSE', href: '#commitments' },
-                { name: 'Espace Presse & Carrières', href: '#contact' },
-                { name: 'Demander un devis', href: '#contact' },
+                { name: 'Chiffres Clés & Engagements', href: '#stats' },
+                { name: 'Contact & Demande de Devis', href: '#contact' },
               ].map((item, idx) => (
                 <li key={idx}>
                   <a
                     href={item.href}
                     style={{
-                      fontSize: '0.92rem',
+                      fontSize: '0.88rem',
                       color: 'rgba(255, 255, 255, 0.75)',
                       transition: 'color 0.2s ease',
                     }}
@@ -139,26 +97,26 @@ export default function Footer({ onOpenQuote }) {
             </ul>
           </div>
 
-          {/* Col 4: Newsletter & Quick Contact */}
+          {/* Col 3: Newsletter */}
           <div>
-            <h4 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-heading)', color: '#FFFFFF', marginBottom: '1.25rem' }}>
+            <h4 style={{ fontSize: '1rem', fontFamily: 'var(--font-heading)', color: '#FFFFFF', marginBottom: '1rem' }}>
               Lettre d'Information
             </h4>
-            <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.75)', marginBottom: '1rem' }}>
-              Restez informé des actualités et opportunités de nos différents pôles.
+            <p style={{ fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.75)', marginBottom: '0.85rem' }}>
+              Restez informé des opportunités de nos différents pôles.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+            <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', gap: '0.5rem' }}>
               <input
                 type="email"
                 placeholder="Votre adresse email"
                 style={{
                   flex: 1,
-                  padding: '0.65rem 0.9rem',
+                  padding: '0.55rem 0.85rem',
                   borderRadius: 'var(--radius-md)',
                   border: '1px solid rgba(255, 255, 255, 0.15)',
                   backgroundColor: 'rgba(255, 255, 255, 0.06)',
                   color: '#FFFFFF',
-                  fontSize: '0.88rem',
+                  fontSize: '0.85rem',
                   outline: 'none',
                 }}
               />
@@ -166,7 +124,7 @@ export default function Footer({ onOpenQuote }) {
                 type="submit"
                 aria-label="S'inscrire"
                 style={{
-                  padding: '0.65rem 1rem',
+                  padding: '0.55rem 0.85rem',
                   borderRadius: 'var(--radius-md)',
                   border: 'none',
                   backgroundColor: 'var(--color-orange-avira)',
@@ -177,7 +135,7 @@ export default function Footer({ onOpenQuote }) {
                   justifyContent: 'center',
                 }}
               >
-                <Send size={18} />
+                <Send size={16} />
               </button>
             </form>
           </div>
