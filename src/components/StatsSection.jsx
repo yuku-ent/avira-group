@@ -74,16 +74,16 @@ export default function StatsSection() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '2rem',
-            marginBottom: '5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.25rem',
+            marginBottom: '4rem',
           }}
         >
           {metrics.map((m, idx) => (
             <div
               key={idx}
               style={{
-                padding: '2rem 1.5rem',
+                padding: '1.5rem 1rem',
                 backgroundColor: 'rgba(255, 255, 255, 0.06)',
                 backdropFilter: 'blur(12px)',
                 borderRadius: 'var(--radius-lg)',
@@ -97,7 +97,7 @@ export default function StatsSection() {
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '3.2rem',
+                  fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
                   fontWeight: 700,
                   color: 'var(--color-orange-avira)',
                   lineHeight: 1,
@@ -105,9 +105,9 @@ export default function StatsSection() {
                 }}
               >
                 {m.value}
-                <span style={{ fontSize: '2.2rem', color: '#FFFFFF' }}>{m.suffix}</span>
+                <span style={{ fontSize: '1.8rem', color: '#FFFFFF' }}>{m.suffix}</span>
               </div>
-              <h4 style={{ fontFamily: 'var(--font-heading)', color: '#FFFFFF', fontSize: '1.15rem', marginBottom: '0.4rem' }}>
+              <h4 style={{ fontFamily: 'var(--font-heading)', color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '0.4rem' }}>
                 {m.label}
               </h4>
               <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.75)' }}>
@@ -123,7 +123,7 @@ export default function StatsSection() {
             Nos Engagements Qualité & RSE
           </h3>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
             {commitments.map((c, i) => {
               const Icon = c.icon;
               return (

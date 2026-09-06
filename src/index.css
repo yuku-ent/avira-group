@@ -249,3 +249,89 @@ button, input, select, textarea {
 .text-avira-orange {
   color: var(--color-orange-avira);
 }
+
+/* Mobile-First Responsive Styles & Overrides */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base Mobile Adjustments */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .section {
+    padding: 3rem 0 !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .section-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Full width action buttons on small mobile screens */
+  .mobile-full-width {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Auto grid adjustment for small screens */
+  .responsive-grid-1col {
+    grid-template-columns: 1fr !important;
+  }
+
+  .responsive-padding-mobile {
+    padding: 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .btn {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.92rem !important;
+    white-space: normal !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* Reduce oversized titles on very small phones */
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.45rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  .hide-text-mobile {
+    display: none !important;
+  }
+
+  .mobile-compact-padding {
+    padding: 1.25rem !important;
+  }
+}
+
+

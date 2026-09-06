@@ -86,19 +86,20 @@ export default function Navbar({ onOpenQuote, onNavigateHome }) {
           </nav>
 
           {/* Actions: Contact / Quote Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <button
               onClick={onOpenQuote}
               className="btn btn-primary"
               style={{
                 fontSize: '0.85rem',
-                padding: '0.45rem 1.1rem',
+                padding: '0.45rem 0.85rem',
                 minHeight: '38px',
                 borderRadius: 'var(--radius-md)',
               }}
             >
               <FileText size={16} />
-              <span>Demander un devis</span>
+              <span className="hide-text-mobile">Demander un devis</span>
+              <span className="visible-mobile" style={{ display: 'none' }}>Devis</span>
             </button>
 
             {/* Mobile Hamburger Toggle */}

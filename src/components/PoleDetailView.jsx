@@ -339,7 +339,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
               boxShadow: 'var(--shadow-sm)',
             }}
           >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2.5rem 3rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem 2.5rem' }}>
               {pole.services.map((service, index) => (
                 <div
                   key={index}
@@ -375,7 +375,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
             style={{
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-lg)',
-              padding: '2.5rem',
+              padding: 'clamp(1.5rem, 4vw, 2.5rem)',
               border: '1px solid var(--color-border)',
               boxShadow: 'var(--shadow-sm)',
               marginBottom: '3rem',
@@ -388,7 +388,7 @@ export default function PoleDetailView({ pole, onBack, onSelectPoleForQuote }) {
               Des ressources matérielles de pointe régulièrement révisées et renouvelées.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
               {pole.equipment.map((eq, i) => (
                 <div
                   key={i}

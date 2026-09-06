@@ -34,7 +34,7 @@ export default function AboutSection({ onOpenQuote }) {
           <div style={{ position: 'relative' }}>
             <div
               style={{
-                padding: '3rem 2.5rem',
+                padding: 'clamp(1.5rem, 4vw, 3rem)',
                 background: 'linear-gradient(145deg, #0038A9 0%, #001F60 100%)',
                 borderRadius: 'var(--radius-lg)',
                 color: '#FFFFFF',
@@ -102,7 +102,7 @@ export default function AboutSection({ onOpenQuote }) {
             </p>
 
             {/* 4 Pillars Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
               {pillars.map((pillar, i) => {
                 const Icon = pillar.icon;
                 return (

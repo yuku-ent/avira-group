@@ -23,8 +23,8 @@ export default function Footer({ onOpenQuote }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '2rem',
             paddingBottom: '3.5rem',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
           }}

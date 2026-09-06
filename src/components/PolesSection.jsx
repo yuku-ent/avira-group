@@ -406,19 +406,20 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
             style={{
               display: 'inline-flex',
               flexWrap: 'wrap',
-              gap: '0.5rem',
+              gap: '0.4rem',
               marginTop: '2rem',
               padding: '0.35rem',
               backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-full)',
+              borderRadius: 'var(--radius-lg)',
               boxShadow: 'var(--shadow-sm)',
               border: '1px solid var(--color-border)',
               justifyContent: 'center',
+              maxWidth: '100%',
             }}
           >
             {[
               { id: 'all', label: 'Tous les 6 Pôles' },
-              { id: 'medias', label: 'Médias & Communication' },
+              { id: 'medias', label: 'Médias & Comm.' },
               { id: 'construction', label: 'BTP & Immobilier' },
               { id: 'mobilite', label: 'Mobilité & Fret' },
               { id: 'express', label: '🚀 Livraison Express' },
@@ -427,11 +428,11 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
                 style={{
-                  padding: '0.55rem 1.25rem',
+                  padding: '0.5rem 1rem',
                   borderRadius: 'var(--radius-full)',
                   border: 'none',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.88rem',
+                  fontSize: '0.85rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
@@ -449,8 +450,8 @@ export default function PolesSection({ onSelectPoleForQuote, onSelectPoleDetail 
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.75rem',
           }}
         >
           {filteredPoles.map((pole) => {

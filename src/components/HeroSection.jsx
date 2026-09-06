@@ -160,9 +160,9 @@ export default function HeroSection({ onOpenQuote, onExplorePoles }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '1rem',
-            padding: '1.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: '0.75rem',
+            padding: 'clamp(1rem, 3vw, 1.5rem)',
             backgroundColor: 'rgba(255, 255, 255, 0.06)',
             backdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.12)',

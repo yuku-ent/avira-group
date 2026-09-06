@@ -131,7 +131,7 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
           {/* Left Side: Direct Contact Details & Info */}
           <div
             style={{
-              padding: '2.5rem',
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-lg)',
               border: '1px solid var(--color-border)',
@@ -255,10 +255,10 @@ export default function ContactSection({ initialPoleId = 'all', sectionRef }) {
             </div>
           </div>
 
-          {/* Right Side: Form (Strict Brand Guidelines compliant - native mobile select, 44px touch height, orange send button) */}
+          {/* Right Side: Form */}
           <div
             style={{
-              padding: '2.5rem',
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-lg)',
               border: '1px solid var(--color-border)',
